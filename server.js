@@ -12,11 +12,11 @@ app.use(session({
 	saveUninitialized: false
 }))
 
-
-
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(methodOverride("_method"))
 
+const userController = require("./controllers/userController.js")
+app.use("/users",userController)
 
 
 app.listen(PORT,() => {

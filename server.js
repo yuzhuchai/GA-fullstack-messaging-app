@@ -15,8 +15,17 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(methodOverride("_method"))
 
+const authController = require("./controllers/authController.js")
+app.use("/auth",authController)
+
 const userController = require("./controllers/userController.js")
 app.use("/users",userController)
+
+const photoController = require("./controllers/photoController.js")
+app.use("/photos",photoController)
+
+const messageController = require("./controllers/messageController.js")
+app.use("/messages",messageController)
 
 
 app.listen(PORT,() => {

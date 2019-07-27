@@ -26,6 +26,8 @@ router.get("/new", (req,res,next)=>{
 })
 
 //photo post route 
+//!!!!!!!!!!!!!!attention!!!!!!!!!!!!
+//need to add the user info to the created photos.
 router.post("/", upload.single('photo'), async (req,res,next)=>{
 	// console.log(req.file);
 	// res.send(req.file)
@@ -55,6 +57,18 @@ router.get("/serve/:id", async (req,res,next)=>{
 		const servePhoto = await Photo.findById(req.params.id)
 		res.set("contentType", servePhoto.photo.contentType)
 		res.send(servePhoto.photo.data)
+	}catch(err){
+		next(err)
+	}
+})
+
+
+router.get("/:id", async (req,res,next)=>{
+	try{
+		const foundPhoto = await Photo.findById(req.params.id)
+		res.render("photo/show.ejs",{
+			photo: foundPhoto
+		})
 	}catch(err){
 		next(err)
 	}

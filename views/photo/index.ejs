@@ -4,7 +4,13 @@
 	<title>photo index</title>
 </head>
 <body>
-	<p>photoIndex</p>
+	<h1>photoIndex</h1>
+
+	<%photos.forEach((photo) => { %>
+		<img src="/photos/serve/<%=photo.id%>">
+		title: <%=photo.title%>
+		id: <%=photo.id%>
+	<%})%>
 
 	<form action="/photos/new" method="GET">
 		<button>upload a new photo</button>

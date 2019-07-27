@@ -7,8 +7,16 @@ const fs = require("fs")
 const upload = multer({dest: "uploads"})
 
 //photo index route, 
-router.get("/",(req,res,next)=>{
-	res.render("photo/index.ejs")
+router.get("/", async (req,res,next)=>{
+	try{
+		const foundPhotos = await Photo.find({})
+		console.log(foundPhotos);
+		res.render("photo/index.ejs",{
+			photos: foundPhotos
+		})
+	}catch(err){
+		next(err)
+	}
 })
 
 
@@ -16,7 +24,6 @@ router.get("/",(req,res,next)=>{
 router.get("/new", (req,res,next)=>{
 	res.render("photo/create.ejs")
 })
-
 
 //photo post route 
 router.post("/", upload.single('photo'), async (req,res,next)=>{
@@ -30,11 +37,25 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 	createdPhoto.date = req.body.date
 	createdPhoto.photo.data = fs.readFileSync(filePath)
 	createdPhoto.photo.contentType = req.file.mimetype
+	try{
+		await createdPhoto.save()
+		console.log(createdPhoto, "<-------this is uploaded photo");
 
-	await createdPhoto.save()
-	console.log(createdPhoto, "<-------this is uploaded photo");
+		res.redirect("/")
+	} catch(err){
+		next(err)
+	}
+})
 
-
+//need a route to serve the images. 
+router.get("/serve/:id", async (req,res,next)=>{
+	try{
+		const servePhoto = await Photo.findById(req.params.id)
+		res.set("contentType", servePhoto.photo.contentType)
+		res.send(servePhoto.photo.data)
+	}catch(err){
+		next(err)
+	}
 })
 
 module.exports = router

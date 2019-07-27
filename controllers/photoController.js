@@ -7,6 +7,10 @@ const fs = require("fs")
 const upload = multer({dest: "uploads"})
 
 
+router.get("/",(req,res,next)=>{
+	res.render("photo/index.ejs")
+})
+
 router.get("/new", (req,res,next)=>{
 	res.render("photo/create.ejs")
 })

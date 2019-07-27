@@ -9,7 +9,6 @@
 	<%photos.forEach((photo) => { %>
 		<img src="/photos/serve/<%=photo.id%>">
 		title: <%=photo.title%>
-		id: <%=photo.id%>
 	<%})%>
 
 	<form action="/photos/new" method="GET">

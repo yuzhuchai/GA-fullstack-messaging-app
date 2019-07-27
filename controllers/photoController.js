@@ -40,12 +40,14 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 	try{
 		await createdPhoto.save()
 		console.log(createdPhoto, "<-------this is uploaded photo");
-
-		res.redirect("/")
+		res.redirect(`/photos/${createdPhoto.id}`)
+///now need to delete the file inside the upload folder. 
+		fs.unlinkSync(filePath)
 	} catch(err){
 		next(err)
 	}
 })
+
 
 //need a route to serve the images. 
 router.get("/serve/:id", async (req,res,next)=>{

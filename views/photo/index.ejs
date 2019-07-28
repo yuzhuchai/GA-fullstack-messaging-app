@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<title>photo index</title>
 </head>
 <body>
 	<h1>photoIndex</h1>
 
 	<%photos.forEach((photo) => { %>
-		<img src="/photos/serve/<%=photo.id%>">
-		title: <%=photo.title%>
+	<div class="imgdiv">
+		<p class="imgtitle">title: <%=photo.title%></p>
+		<br/>
+		<a href="/photos/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
+	</div>
 	<%})%>
 
 	<form action="/photos/new" method="GET">

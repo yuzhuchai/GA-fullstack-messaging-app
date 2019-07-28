@@ -1,0 +1,21 @@
+body{
+	/*background-color: lavender;*/
+}
+
+h1{
+	margin:0 auto;
+	text-align: center;
+}
+
+.thumbnail{
+	width: 250px;
+}
+
+.imgdiv{
+	display: inline-block;
+	margin: 50px;
+}
+
+.imgtitle{
+	text-align: center;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GHE Hotel</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Glass Half Empty Hotel</h1>
+    </header>
+    <main>
+      <span><%=message%></span>
+
+      <h2>Login</h2>
+      <form action="/auth/login" method="POST">
+        <input type="text" name="userName" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button type='submit'>Login</button>
+      </form>
+        <a href="/user/new"><p>Register New Account</p></a>
+    </main>
+  </body>
+</html>

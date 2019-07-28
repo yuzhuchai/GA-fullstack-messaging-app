@@ -29,6 +29,12 @@ app.use("/photos",photoController)
 const messageController = require("./controllers/messageController.js")
 app.use("/messages",messageController)
 
+app.get('/', (req, res) => {
+  res.render('index.ejs', {
+    message: req.session.message
+  });
+});
+
 
 app.listen(PORT,() => {
 	console.log(`server listening at ${PORT}, ${new Date}`);

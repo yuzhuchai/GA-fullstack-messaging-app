@@ -15,7 +15,11 @@ router.post('/login', async (req, res, next) => {
         req.session.logged = true;
 
         res.redirect(`/photos/${userFound.latestUploadId}`)
+      } else {
+        console.log('incorrect password');
       }
+    } else {
+      console.log('user not found');
     }
 
   } catch (error) {
@@ -23,7 +27,27 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
+router.post('/register', async (req, res) => {
 
+  const password = req.body.password;
 
+  // Encrypt inputed password
+  const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+
+  req.body.password = hashedPassword;
+
+  try {
+      const createdUser = await User.create(req.body);
+
+      req.session.userId = createdUser._id;
+      req.session.username = createdUser.username;
+      req.session.logged = true;
+
+      res.redirect('/user/edit.ejs');
+  } catch (err){
+    res.send(err)
+  }
+
+});
 
 module.exports = router

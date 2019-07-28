@@ -16,16 +16,18 @@ router.post('/login', async (req, res, next) => {
 
         res.redirect(`/photos/${userFound.latestUploadId}`)
       } else {
-        console.log('incorrect password');
+        req.session.message = 'Incorrect password';
+        res.redirect('/');
       }
     } else {
-      console.log('user not found');
-    }
+      req.session.message = 'Username not found';
+      res.redirect('/');    }
 
   } catch (error) {
     next(err);
   }
 })
+
 
 router.post('/register', async (req, res) => {
 
@@ -43,7 +45,7 @@ router.post('/register', async (req, res) => {
       req.session.username = createdUser.username;
       req.session.logged = true;
 
-      res.redirect('/user/edit.ejs');
+      res.redirect('/user/edit');
   } catch (err){
     res.send(err)
   }

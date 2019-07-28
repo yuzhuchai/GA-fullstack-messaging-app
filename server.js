@@ -35,6 +35,11 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/user/new', (req, res, next) => {
+    res.render('./user/create.ejs', {
+      message: req.session.message
+    })
+})
 
 app.listen(PORT,() => {
 	console.log(`server listening at ${PORT}, ${new Date}`);

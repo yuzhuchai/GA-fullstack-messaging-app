@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
 	profilePhoto: {
       data: Buffer,
       contentType: String
-    },
+		},
+	latestUploadId: String
 })
 
 const User = mongoose.model("User",userSchema)

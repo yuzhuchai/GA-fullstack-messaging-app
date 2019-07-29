@@ -12,17 +12,15 @@ router.post('/login', async (req, res, next) => {
       if (bcrypt.compareSync(req.body.password, userFound.password)) {
         req.session.userId = userFound._id;
         req.session.username = userFound.username;
-        req.session.logged = true;
+        req.session.loggedIn = true;
 
-        res.redirect(`/photos`)
+        res.redirect('/photos/' + req.session.userId)
       } else {
         req.session.message = 'Incorrect password';
-        res.redirect('/');
       }
     } else {
       req.session.message = 'Username not found';
-      res.redirect('/');    }
-
+    }
   } catch (error) {
     next(err);
   }
@@ -43,9 +41,9 @@ router.post('/register', async (req, res) => {
 
       req.session.userId = createdUser._id;
       req.session.username = createdUser.username;
-      req.session.logged = true;
+      req.session.loggedIn = true;
 
-      res.redirect('/photos');
+      res.redirect('/photos/' + req.session.userId);
   } catch (err){
     res.send(err)
   }

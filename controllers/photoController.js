@@ -7,35 +7,23 @@ const fs = require("fs")
 
 const upload = multer({dest: "uploads"})
 
-//photo index route,
-router.get("/:userId", async (req,res,next)=>{
-	console.log('u hit da route {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}');
-	try{
-		if(req.session.loggedIn === true) {
-			const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user")
-			res.render("photo/index.ejs",{
-				photos: foundPhotos
-			})
-		} else {
-			res.render("/login")
-		}
-	}catch(err){
-		next(err)
+//photo new route
+router.get("/new", (req,res,next)=>{
+	console.log('fuck this shit im out 66666666666666666666666');
+	try {
+		res.render("photo/create.ejs")
+	} catch (e) {
+		next(e)
 	}
 })
 
 
 
-//photo new route
-router.get("/new", (req,res,next)=>{
-	res.render("photo/create.ejs")
-})
-
 //photo post route
 //!!!!!!!!!!!!!!attention!!!!!!!!!!!!
 //need to add the user info to the created photos.
 router.post("/", upload.single('photo'), async (req,res,next)=>{
-	// console.log(req.file);
+	console.log('im finna screaaaaammMMmmMmmmmmmMmmmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM');
 	// res.send(req.file)
 	//creates a file inside the uplaods folder.
 	const filePath = req.file.path
@@ -49,12 +37,12 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 		createdPhoto.photo.contentType = req.file.mimetype
 
 		const userFound = await User.findById(req.session.userId)
+		console.log('USER FOUND BOI -----------------------------------------------', userFound);
 		userFound.allPhotoIds.unshift(createdPhoto._id)
-		createdPhoto.user.push(userFound)
-
+		createdPhoto.user=userFound
 		await createdPhoto.save()
 		console.log(createdPhoto, "<-------this is uploaded photo")
-		res.redirect(`/photos/${createdPhoto.id}`)
+		res.redirect(`/photos/photo/${createdPhoto.id}`)
 ///now need to delete the file inside the upload folder.
 		fs.unlinkSync(filePath)
 	} catch(err){
@@ -75,7 +63,7 @@ router.get("/serve/:id", async (req,res,next)=>{
 })
 
 // SHOW ROUTE
-router.get("/:id", async (req,res,next)=>{
+router.get("/photo/:id", async (req,res,next)=>{
 	try{
 		const foundPhoto = await Photo.findById(req.params.id)
 		res.render("photo/show.ejs",{
@@ -98,5 +86,17 @@ router.get("/:id", async (req,res,next)=>{
 // })
 
 
+//photo index route,
+router.get("/:userId", async (req,res,next)=>{
+	console.log('u hit da route {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}');
+	try{
+		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user")
+		res.render("photo/index.ejs",{
+			photos: foundPhotos
+		})
+	}catch(err){
+		next(err)
+	}
+})
 
 module.exports = router

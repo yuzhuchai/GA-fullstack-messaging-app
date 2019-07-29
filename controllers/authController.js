@@ -9,7 +9,7 @@ router.post('/login', async (req, res, next) => {
     const userFound = await User.findOne({username: req.body.username})
 
     if (userFound) {
-      if (bcrypt.compareSync(userFound.password, req.body.password)) {
+      if (bcrypt.compareSync(req.body.password, userFound.password)) {
         req.session.userId = userFound._id;
         req.session.username = userFound.username;
         req.session.logged = true;
@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
       req.session.username = createdUser.username;
       req.session.logged = true;
 
-      res.redirect('/user/edit');
+      res.redirect('/photos');
   } catch (err){
     res.send(err)
   }

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express")
 const app = express()
 const PORT = 3000
@@ -7,7 +8,7 @@ const session = require("express-session")
 require("./db/db")
 
 app.use(session({
-	secret: "THIS IS A RANDOM SECRET STRING",
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false
 }))

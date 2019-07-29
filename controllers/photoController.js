@@ -65,7 +65,7 @@ router.get("/serve/:id", async (req,res,next)=>{
 
 router.get("/:id", async (req,res,next)=>{
 	try{
-		const foundPhoto = await Photo.findById(req.params.id)
+		const foundPhoto = await Photo.findById(req.params.id).sort("-date")
 		res.render("photo/show.ejs",{
 			photo: foundPhoto
 		})

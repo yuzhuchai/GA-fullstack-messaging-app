@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
 
 const messageSchema = new mongoose.Schema({
-	photo: {
+	photo: [{
     type: mongoose.Schema.Types.ObjectId,  // ._id
     ref: 'Photo'
-  		},
+  		}],
 	date: Date,
 	title: String,
 	content: String,

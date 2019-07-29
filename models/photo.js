@@ -1,11 +1,14 @@
 const mongoose = require("mongoose")
 
 const photoSchema = new mongoose.Schema({
-	user: {
+	user: [{
     type: mongoose.Schema.Types.ObjectId,  // ._id
     ref: 'User'
-  		},
-	date: Date,
+  		}],
+	date: {
+    type: Date, 
+    defult: Date.now
+  },
 	title: String,
 	photo: {
       data: Buffer,

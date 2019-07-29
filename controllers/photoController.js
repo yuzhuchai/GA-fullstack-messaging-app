@@ -9,7 +9,7 @@ const upload = multer({dest: "uploads"})
 //photo index route, 
 router.get("/", async (req,res,next)=>{
 	try{
-		const foundPhotos = await Photo.find({})
+		const foundPhotos = await Photo.find({}).sort("-date")
 		console.log(foundPhotos);
 		res.render("photo/index.ejs",{
 			photos: foundPhotos
@@ -65,7 +65,7 @@ router.get("/serve/:id", async (req,res,next)=>{
 
 router.get("/:id", async (req,res,next)=>{
 	try{
-		const foundPhoto = await Photo.findById(req.params.id).sort("-date")
+		const foundPhoto = await Photo.findById(req.params.id)
 		res.render("photo/show.ejs",{
 			photo: foundPhoto
 		})

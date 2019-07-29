@@ -14,7 +14,7 @@ router.post('/login', async (req, res, next) => {
         req.session.username = userFound.username;
         req.session.logged = true;
 
-        res.redirect(`/photos/${userFound.latestUploadId}`)
+        res.redirect(`/photos`)
       } else {
         req.session.message = 'Incorrect password';
         res.redirect('/');
@@ -51,5 +51,17 @@ router.post('/register', async (req, res) => {
   }
 
 });
+
+router.get('/logout', (req, res) => {
+
+  req.session.destroy((err) => {
+    if(err){
+      res.send(err);
+    } else {
+      res.redirect('/');// back to the homepage
+    }
+  })
+
+})
 
 module.exports = router

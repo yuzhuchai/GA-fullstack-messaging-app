@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
       data: Buffer,
       contentType: String
 		},
-	uploadIds: [String]
+	allPhotoIds: [String]
 })
 
 const User = mongoose.model("User",userSchema)

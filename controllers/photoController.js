@@ -1,49 +1,49 @@
 const express = require("express")
 const router = express.Router()
 const Photo = require("../models/photo.js")
+const User = require("../models/user.js")
 const multer = require("multer")
 const fs = require("fs")
 
 const upload = multer({dest: "uploads"})
 
-//photo index route, 
-router.get("/", async (req,res,next)=>{
-	try{
-		const foundPhotos = await Photo.find({}).sort("-date")
-		console.log(foundPhotos);
-		res.render("photo/index.ejs",{
-			photos: foundPhotos
-		})
-	}catch(err){
-		next(err)
+//photo new route
+router.get("/new", (req,res,next)=>{
+	console.log('fuck this shit im out 66666666666666666666666');
+	try {
+		res.render("photo/create.ejs")
+	} catch (e) {
+		next(e)
 	}
 })
 
 
-//photo new route 
-router.get("/new", (req,res,next)=>{
-	res.render("photo/create.ejs")
-})
 
-//photo post route 
+//photo post route
 //!!!!!!!!!!!!!!attention!!!!!!!!!!!!
 //need to add the user info to the created photos.
 router.post("/", upload.single('photo'), async (req,res,next)=>{
-	// console.log(req.file);
+	console.log('im finna screaaaaammMMmmMmmmmmmMmmmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM');
 	// res.send(req.file)
 	//creates a file inside the uplaods folder.
 	const filePath = req.file.path
 	// console.log(req.body);
 	const createdPhoto = new Photo
-	createdPhoto.title = req.body.title
-	createdPhoto.date = req.body.date
-	createdPhoto.photo.data = fs.readFileSync(filePath)
-	createdPhoto.photo.contentType = req.file.mimetype
 	try{
+
+		createdPhoto.title = req.body.title
+		createdPhoto.date = req.body.date
+		createdPhoto.photo.data = fs.readFileSync(filePath)
+		createdPhoto.photo.contentType = req.file.mimetype
+
+		const userFound = await User.findById(req.session.userId)
+		console.log('USER FOUND BOI -----------------------------------------------', userFound);
+		userFound.allPhotoIds.unshift(createdPhoto._id)
+		createdPhoto.user=userFound
 		await createdPhoto.save()
-		console.log(createdPhoto, "<-------this is uploaded photo");
-		res.redirect(`/photos/${createdPhoto.id}`)
-///now need to delete the file inside the upload folder. 
+		console.log(createdPhoto, "<-------this is uploaded photo")
+		res.redirect(`/photos/photo/${createdPhoto.id}`)
+///now need to delete the file inside the upload folder.
 		fs.unlinkSync(filePath)
 	} catch(err){
 		next(err)
@@ -51,7 +51,7 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 })
 
 
-//need a route to serve the images. 
+//need a route to serve the images.
 router.get("/serve/:id", async (req,res,next)=>{
 	try{
 		const servePhoto = await Photo.findById(req.params.id)
@@ -62,12 +62,37 @@ router.get("/serve/:id", async (req,res,next)=>{
 	}
 })
 
-
-router.get("/:id", async (req,res,next)=>{
+// SHOW ROUTE
+router.get("/photo/:id", async (req,res,next)=>{
 	try{
 		const foundPhoto = await Photo.findById(req.params.id)
 		res.render("photo/show.ejs",{
 			photo: foundPhoto
+		})
+	}catch(err){
+		next(err)
+	}
+})
+
+// Show newest Photo route
+// GET /:userId/newest
+
+// router.get("/:userId/newest", (req, res, next) => {
+// 	try {
+//
+// 	} catch (err) {
+//
+// 	}
+// })
+
+
+//photo index route,
+router.get("/:userId", async (req,res,next)=>{
+	console.log('u hit da route {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}');
+	try{
+		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user")
+		res.render("photo/index.ejs",{
+			photos: foundPhotos
 		})
 	}catch(err){
 		next(err)

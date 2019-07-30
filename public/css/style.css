@@ -23,6 +23,10 @@ h1{
     margin-bottom: 10px;
 }
 
+.showpage{
+  width: 400px;
+}
+
 #doortoothergallery{
     float: right;
 }

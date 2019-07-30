@@ -6,9 +6,9 @@ const userSchema = new mongoose.Schema({
 	password: {type: String, required: true},
 	email: String,
 	profilePhoto: {
-      data: Buffer,
-      contentType: String
-		},
+    data: Buffer,
+    contentType: String
+	},
 	allPhotoIds: [String]
 })
 

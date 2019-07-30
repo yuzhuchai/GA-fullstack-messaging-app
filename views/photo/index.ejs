@@ -10,11 +10,15 @@
 			<a href="/auth/logout">logout</a>
 		</li>
 		<div id="doortoothergallery">
-		<form action="/:id" method="GET">
+		<form action="/photos/<%=users._id%>" method="GET">
 			other gallery
-			<select>
-				<option></option>
+			<button type="submit">Roast</button>
+			<select name="user">
+				<% for (let i = 0; i < users.length; i++) {%>
+						<option value="<%=users[i]._id%>"><%=users[i].username%></option>
+				<%}%>
 			</select>
+		</button>
 		</form>
 		</div>
 	</ul>
@@ -22,14 +26,14 @@
 <body>
 	<h1>Gallery</h1>
 
-	<%photos.forEach((photo) => { %>
-	<div class="imgdiv">
-		<p class="imgtitle"><%=photo.title%></p>
-		<p class='score'>this is the photo avg score, reformat later</p>
-		<br/>
-		<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
-	</div>
-	<%})%>
+	<% photos.forEach((photo) => { %>
+		<div class="imgdiv">
+			<p class="imgtitle"><%=photo.title%></p>
+			<p class='score'>this is the photo avg score, reformat later</p>
+			<br/>
+			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
+		</div>
+	<% }) %>
 	<form action="/photos/new" method="GET">
 		<button>upload a new photo</button>
 	</form>

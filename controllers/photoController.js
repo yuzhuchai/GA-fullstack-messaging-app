@@ -35,8 +35,7 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 		createdPhoto.photo.contentType = req.file.mimetype
 
 		const userFound = await User.findById(req.session.userId)
-		console.log('USER FOUND BOI -----------------------------------------------', userFound);
-		userFound.allPhotoIds.unshift(createdPhoto._id)
+		console.log('Found user in photo post route -----------------------------------------------', userFound);
 		createdPhoto.user=userFound
 		await createdPhoto.save()
 		console.log(createdPhoto, "<-------this is uploaded photo")

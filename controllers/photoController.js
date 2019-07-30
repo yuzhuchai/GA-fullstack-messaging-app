@@ -88,6 +88,7 @@ router.get("/photo/:id", async (req,res,next)=>{
 router.get("/:userId", async (req,res,next)=>{
 	console.log('Hitting photo index route <<<<<<<<<<<<<<<<<--------------------------------');
 	try{
+		await Photo.find({}).sort('-date').exec();
 		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user")
 		const foundUsers = await User.find({})
 		res.render("photo/index.ejs",{

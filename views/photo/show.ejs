@@ -13,8 +13,36 @@
 	<div id="newestPhoto">
 		<img class="showpage" src="/photos/serve/<%=photo.id%>">
 	</div>
-	<div id="critiques"></div>
 
+
+
+
+	<div id="critiques">
+
+		<!-- show critiques -->
+		<div>
+			<%for (let i = 0; i < messages.length; i++) {%>
+				<div class="messageIndex">
+					<div class="username"><%=messages[i].username%></div>
+					<div class="title"><%=messages[i].title%></div>
+					<div class="critique"><%=messages[i].content%></div>
+					<div class="price"><%=messages[i].price%></div>
+				</div>
+			<%}%>
+		</div>
+		<!-- create critiques -->
+			<div id="createMessagePanel">
+				<div id="critiqueInput">
+					<form action="/messages" method="POST">
+						<input type="text" name="title" placeholder="Title">
+						<input type="text" name="critique" placeholder="Enter a critique...">
+						<input type="text" name="price" placeholder="$0">
+						<button type="submit" id="submitCritique">Flame this boi</button>
+					</form>
+				</div>
+
+			</div>
+	</div>
 	<a href="/photos/<%=photo.user._id%>">back to gallery</a>
 </body>
 </html>

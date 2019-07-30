@@ -5,11 +5,11 @@ const messageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,  // ._id
     ref: 'Photo'
   }],
-	date: Date,
+	date: {type: Date, default: Date.now},
 	title: String,
 	content: String,
   price: Number,
-  userName: String
+  username: String
 })
 
 const Message = mongoose.model("Message",messageSchema)

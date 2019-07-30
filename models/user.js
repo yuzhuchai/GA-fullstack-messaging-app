@@ -8,8 +8,7 @@ const userSchema = new mongoose.Schema({
 	profilePhoto: {
     data: Buffer,
     contentType: String
-	},
-	allPhotoIds: [String]
+	}
 })
 
 const User = mongoose.model("User",userSchema)

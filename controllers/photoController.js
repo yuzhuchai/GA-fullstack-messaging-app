@@ -75,13 +75,14 @@ router.get("/photo/:id", async (req,res,next)=>{
 // Show newest Photo route
 // GET /:userId/newest
 
-// router.get("/:userId/newest", (req, res, next) => {
-// 	try {
-//
-// 	} catch (err) {
-//
-// 	}
-// })
+router.get("/:userId/newest", async (req, res, next) => {
+	try {
+		const newestPhoto = await Photo.find({"user": req.params.userId}).populate("user").sort({"date": -1})
+		res.redirect(`/photos/photo/${newestPhoto[0]._id}`)
+	} catch (err) {
+		next(err)
+	}
+})
 
 
 //photo index route,
@@ -101,7 +102,7 @@ router.get("/:userId", async (req,res,next)=>{
 
 router.get('/', (req, res) => {
 	console.log(req.query);
-	res.redirect(`/photos/${req.query.user}`)  /// redirect to above around
+	res.redirect(`/photos/${req.query.user}/newest`)  /// redirect to above around
 })
 
 module.exports = router

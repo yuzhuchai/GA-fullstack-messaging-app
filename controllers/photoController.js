@@ -30,7 +30,7 @@ router.post("/", upload.single('photo'), async (req,res,next)=>{
 	try{
 
 		createdPhoto.title = req.body.title
-		createdPhoto.date = req.body.date
+		// if(req.body.date) createdPhoto.date = req.body.date
 		createdPhoto.photo.data = fs.readFileSync(filePath)
 		createdPhoto.photo.contentType = req.file.mimetype
 
@@ -63,7 +63,7 @@ router.get("/serve/:id", async (req,res,next)=>{
 // SHOW ROUTE
 router.get("/photo/:id", async (req,res,next)=>{
 	try{
-		const foundPhoto = await Photo.findById(req.params.id)
+		const foundPhoto = await Photo.findById(req.params.id).populate("user")
 		res.render("photo/show.ejs",{
 			photo: foundPhoto
 		})
@@ -88,7 +88,7 @@ router.get("/photo/:id", async (req,res,next)=>{
 router.get("/:userId", async (req,res,next)=>{
 	console.log('Hitting photo index route <<<<<<<<<<<<<<<<<--------------------------------');
 	try{
-		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user")
+		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user").sort({"date": -1})
 		const foundUsers = await User.find({})
 		res.render("photo/index.ejs",{
 			photos: foundPhotos,

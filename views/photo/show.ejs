@@ -5,34 +5,48 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<h1><%=photo.title%></h1>
+
+	<h1><%=photo.title%></h1>	
 	<div class="door">
 		<div class="galleryDoor"></div>
 		<div class="navigationDoor"></div>
 	</div>
-	<div id="newestPhoto">
-		<img class="showpage" src="/photos/serve/<%=photo.id%>">
+
+
+<div class="container">
+
+	<div id="newestPhoto" class="leftcol">
+		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
 	</div>
 
 
-
-
-	<div id="critiques">
-
+	<div id="critiques" class="rightcol">
 		<!-- show critiques -->
-		<div>
+		<div id="messagedisplay">
+
+<!-- the code between this seperator is creating the bug in the page.      -->
 			<%for (let i = 0; i < messages.length; i++) {%>
 				<div class="messageIndex">
+					<!-- we also neex to add edit and delete button to each message index -->
 					<div class="username"><%=messages[i].username%></div>
 					<div class="title"><%=messages[i].title%></div>
 					<div class="critique"><%=messages[i].content%></div>
 					<div class="price"><%=messages[i].price%></div>
+					<form>
+						<button>delete</button>
+					</form>
+					<form>
+						<button>edit</button>
+					</form>
 				</div>
 			<%}%>
+<!-- the code between this seperator is creating the bug in the page.      -->
+
 		</div>
 		<!-- create critiques -->
 			<div id="createMessagePanel">
 				<div id="critiqueInput">
+					<h3>add a critique for this art</h3>
 					<form action="/messages" method="POST">
 						<input type="text" name="title" placeholder="Title">
 						<input type="text" name="critique" placeholder="Enter a critique...">
@@ -42,6 +56,8 @@
 				</div>
 			</div>
 	</div>
+
+</div>
 	<a href="/photos/<%=photo.user._id%>">back to gallery</a>
 </body>
 </html>

@@ -21,8 +21,10 @@
 		</div>
 	</ul>
 </nav>
-<body>
+
 	<h1> Gallery</h1>
+
+<div id="imageindexcontainer">
 
 	<% photos.forEach((photo) => { %>
 		<div class="imgdiv">
@@ -32,6 +34,10 @@
 			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
 		</div>
 	<% }) %>
+
+</div>
+
+
 	<form action="/photos/new" method="GET">
 		<button>upload a new photo</button>
 	</form>

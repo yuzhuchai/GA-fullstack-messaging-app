@@ -8,12 +8,14 @@ h1{
 }
 
 .thumbnail{
-    width: 250px;
+    width: 100%;
 }
 
 .imgdiv{
     display: inline-block;
-    margin: 50px;
+    width:30%;
+    float: none;
+    margin:auto 1.5%;
 }
 
 .imgtitle{
@@ -57,4 +59,15 @@ h1{
 footer{
     text-align: center;
     margin-top: 50px;
+}
+
+
+#imageindexcontainer{
+    margin: auto;
+    height:500px;
+    width:90%;
+    border:1px solid black;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }

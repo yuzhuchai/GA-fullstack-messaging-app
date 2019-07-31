@@ -124,9 +124,19 @@ router.delete("/photo/:photoId", requireLogIn, async (req, res, next) => {
 })
 
 // Redirect to nearest show page
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 	console.log(req.query);
-	res.redirect(`/photos/${req.query.user}/newest`)  /// redirect to above around
+	try{
+		const foundphotos = await Photo.find({user: req.query.user})
+		console.log(foundphotos);
+		if (foundphotos.length === 0){
+			res.redirect(`/photos/${req.query.user}`)			
+		}else{
+			res.redirect(`/photos/${req.query.user}/newest`)  /// redirect to above around	
+		}
+	}catch(err){
+		next(err)
+	}
 })
 
 

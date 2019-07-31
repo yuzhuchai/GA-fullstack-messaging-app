@@ -21,7 +21,8 @@
 		</div>
 
 <%if (username !== thisUser.username){%>
-	<h1><%=thisUser.username%>'s Gallery</h1> <a href="/photos/<%=userId%>">back to your own gallery</a>
+	<a href="/photos/<%=userId%>">back to your own gallery</a>
+	<h1><%=thisUser.username%>'s Gallery</h1> 
 <%}else{%>
 	<h1>Your Gallery</h1>
 <%}%>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/showStyle.css">
+    <title></title>
+  </head>
+<% include ../partials/header.ejs%>
+
+
+<div class="container">
+
+	<div id="newestPhoto" class="leftcol">
+		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
+		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
+			<button type="submit">Delete</button>
+		</form>
+	</div>
+
+
+	<div id="critiques" class="rightcol">
+		<!-- show critiques -->
+		<div id="messagedisplay">
+
+<!-- the code between this seperator is creating the bug in the page.      -->
+			<div id="createMessagePanel">
+				<div id="critiqueInput">
+					<h3>Add a critique</h3>
+          <form action="/messages" method="POST">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="content" placeholder="Enter a critique...">
+            <input type="text" name="price" placeholder="$0">
+            <input type="hidden" name="photoId" value="<%=photo.id%>">
+            <button type="submit" id="submitCritique">Flame this boi</button>
+          </form>
+				</div>
+			</div>
+		</div>
+		<!-- create critiques -->
+	</div>
+
+<!-- the code between this seperator is creating the bug in the page.      -->
+
+
+
+</div>
+	<a href="/photos/<%=photo.user%>">back to gallery</a>
+
+
+<% include ../partials/footer.ejs%>

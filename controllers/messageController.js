@@ -6,6 +6,16 @@ const User = require("../models/user.js")
 const bodyParser = require("body-parser")
 const requireLogIn = require("../lib/requireAuth.js")
 
+router.get("/:photoId/new", async(req, res, next) => {
+	try {
+		const foundPhoto = await Photo.findById(req.params.photoId)
+		res.render("message/create.ejs", {
+			photo: foundPhoto
+		})
+	} catch (err) {
+		next(err)
+	}
+})
 
 // Post route to track new messages
 router.post("/", async (req,res,next)=>{

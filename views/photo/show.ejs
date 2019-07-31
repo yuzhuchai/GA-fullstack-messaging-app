@@ -51,16 +51,9 @@
 			<div id="createMessagePanel">
 				<div id="critiqueInput">
 				<%if(photo.user.username !== username){%>
-					<h3>add a critique for this art</h3>
-					<form action="/messages" method="POST">
-						<input type="text" name="title" placeholder="Title">
-						<input type="text" name="content" placeholder="Enter a critique...">
-						<input type="text" name="price" placeholder="$0">
-						<input type="hidden" name="photoId" value="<%=photo.id%>">
-						<button type="submit" id="submitCritique">Flame this boi</button>
-					</form>
+					<h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
 				<%}else{%>
-				<p>comments!</p>
+				  <p>comments!</p>
 				<%}%>
 				</div>
 			</div>

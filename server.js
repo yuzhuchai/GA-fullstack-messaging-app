@@ -18,6 +18,17 @@ app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(methodOverride("_method"))
 
+
+app.use((req,res,next)=>{
+  console.log("hitting the custom middleware");
+  res.locals.loggedIn = req.session.loggedIn
+  res.locals.username = req.session.username
+  res.locals.userId = req.session.userId
+  next()
+})
+
+
+
 const authController = require("./controllers/authController.js")
 app.use("/auth",authController)
 
@@ -29,6 +40,8 @@ app.use("/photos",photoController)
 
 const messageController = require("./controllers/messageController.js")
 app.use("/messages",messageController)
+
+
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {

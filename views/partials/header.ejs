@@ -10,7 +10,8 @@
 <form action="auth/logout" method="GET">
   <button>logOut</button>	
 </form>
-<form action="" method="POST">
+<!-- this userid comes from the res.locals -->
+<form action="users/<%=userId%>?_method=DELETE" method="POST">
 	<button>Delete Account</button>
 </form>
 <form>

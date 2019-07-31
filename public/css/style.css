@@ -53,3 +53,8 @@ h1{
     border: 2px solid black;
     overflow-y: scroll;
 }
+
+footer{
+    text-align: center;
+    margin-top: 50px;
+}

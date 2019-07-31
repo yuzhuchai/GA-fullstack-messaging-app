@@ -1,0 +1,80 @@
+html, body{
+    /*background-color: lavender;*/
+    height: 100%;
+    width: 100%;
+}
+
+h1{
+    margin:0 auto;
+    text-align: center;
+}
+
+.thumbnail{
+    width: 100%;
+}
+
+.imgdiv{
+    display: inline-block;
+    width:30%;
+    float: none;
+    margin:auto 1.5%;
+}
+
+.imgtitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.imgshow{
+  width: 90%;
+}
+
+#doortoothergallery{
+    float: right;
+}
+
+.container{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+}
+
+.leftcol,.rightcol{
+    width:48%;
+    align-self:center;
+}
+.messageIndex{
+    margin:10px;
+    border: 1px solid black;
+}
+
+#messagedisplay{
+    width:90%;
+    height:400px;
+    border: 2px solid black;
+    overflow-y: scroll;
+}
+
+footer{
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+#imageindexcontainer{
+    margin: auto;
+    height:80%;
+    width:90%;
+    border:1px solid black;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+nav{
+    display: flex;
+    flex-wrap: none;
+}

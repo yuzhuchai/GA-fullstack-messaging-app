@@ -20,8 +20,12 @@
 		</form>
 		</div>
 
+<%if (username !== thisUser.username){%>
+	<h1><%=thisUser.username%>'s Gallery</h1> <a href="/photos/<%=userId%>">back to your own gallery</a>
+<%}else{%>
+	<h1>Your Gallery</h1>
+<%}%>
 
-	<h1> Gallery</h1>
 
 <div id="imageindexcontainer">
 

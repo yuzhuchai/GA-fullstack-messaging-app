@@ -95,9 +95,11 @@ router.get("/:userId", async (req,res,next)=>{
 	try{
 		const foundPhotos = await Photo.find({"user": req.params.userId}).populate("user").sort({"date": -1})
 		const foundUsers = await User.find({})
+		const thisUser = await User.findById(req.params.userId)
 		res.render("photo/index.ejs",{
 			photos: foundPhotos,
-			users: foundUsers
+			users: foundUsers,
+			thisUser: thisUser
 		})
 	}catch(err){
 		next(err)

@@ -21,7 +21,6 @@
 		</div>
 
 <%if (username !== thisUser.username){%>
-	<a href="/photos/<%=userId%>">back to your own gallery</a>
 	<h1><%=thisUser.username%>'s Gallery</h1> 
 <%}else{%>
 	<h1>Your Gallery</h1>
@@ -36,17 +35,21 @@
 			<p class='score'>this is the photo avg score, reformat later</p>
 			<br/>
 			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
+	<%if(username === thisUser.username){%>		
 			<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
 				<button type="submit">Delete</button>
 			</form>
+	<%}%>
 		</div>
 	<% }) %>
 
 </div>
 
-
+<%if(username === thisUser.username){%>
 	<form action="/photos/new" method="GET">
 		<button>upload a new photo</button>
 	</form>
-
+<%}else{%>
+	<a href="/photos/<%=userId%>">back to your own gallery</a>
+<%}%>
 <% include ../partials/footer.ejs%>

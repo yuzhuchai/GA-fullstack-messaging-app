@@ -19,9 +19,11 @@
 
 	<div id="newestPhoto" class="leftcol">
 		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
+<%if (photo.user.username === username){%>
 		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
 			<button type="submit">Delete</button>
 		</form>
+<%}%>
 	</div>
 
 
@@ -48,6 +50,7 @@
 		<!-- create critiques -->
 			<div id="createMessagePanel">
 				<div id="critiqueInput">
+				<%if(photo.user.username !== username){%>
 					<h3>add a critique for this art</h3>
 					<form action="/messages" method="POST">
 						<input type="text" name="title" placeholder="Title">
@@ -56,6 +59,9 @@
 						<input type="hidden" name="photoId" value="<%=photo.id%>">
 						<button type="submit" id="submitCritique">Flame this boi</button>
 					</form>
+				<%}else{%>
+				<p>comments!</p>
+				<%}%>
 				</div>
 			</div>
 	</div>

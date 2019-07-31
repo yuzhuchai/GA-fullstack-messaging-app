@@ -66,10 +66,11 @@ router.get("/photo/:id", async (req,res,next)=>{
 	try{
 		const foundPhoto = await Photo.findById(req.params.id).populate("user")
 		const foundCritiques = await Message.find({"photo": req.params.id}).sort("-date")
-
+		// const thisuser = await User.findById(foundPhoto.user)
 		res.render("photo/show.ejs",{
 			photo: foundPhoto,
-			critiques: foundCritiques
+			critiques: foundCritiques,
+			// thisuser: thisuser
 		})
 	}catch(err){
 		next(err)

@@ -5,11 +5,12 @@ const User = require("../models/user.js")
 const Message = require("../models/message.js")
 const multer = require("multer")
 const fs = require("fs")
+const requireLogIn = require("../lib/requireAuth.js")
 
 const upload = multer({dest: "uploads"})
 
 //photo new route
-router.get("/new", (req,res,next)=>{
+router.get("/new", requireLogIn, (req,res,next)=>{
 	try {
 		res.render("photo/create.ejs")
 	} catch (e) {
@@ -104,7 +105,7 @@ router.get("/:userId", async (req,res,next)=>{
 })
 
 // Delete route
-router.delete("/photo/:photoId", async (req, res, next) => {
+router.delete("/photo/:photoId", requireLogIn, async (req, res, next) => {
 	console.log('|||||||||||||||||||||||||||||||||||hitting photo delete route ||||||||||||||||||||||||||||||||||||||');
 	try {
 		const photoToDelete = await Photo.findById(req.params.photoId)

@@ -13,7 +13,7 @@ const photoSchema = new mongoose.Schema({
 	photo: {
       data: Buffer,
       contentType: String
-  },
+  }
 })
 
 const Photo = mongoose.model("Photo",photoSchema)

@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Photo = require("../models/photo.js")
 const User = require("../models/user.js")
+const Message = require("../models/message.js")
 const multer = require("multer")
 const fs = require("fs")
 
@@ -63,8 +64,11 @@ router.get("/serve/:id", async (req,res,next)=>{
 router.get("/photo/:id", async (req,res,next)=>{
 	try{
 		const foundPhoto = await Photo.findById(req.params.id).populate("user")
+		const foundCritiques = await Message.find({"photo": req.params.id}).sort("-date")
+
 		res.render("photo/show.ejs",{
-			photo: foundPhoto
+			photo: foundPhoto,
+			critiques: foundCritiques
 		})
 	}catch(err){
 		next(err)

@@ -103,9 +103,28 @@ router.get("/:userId", async (req,res,next)=>{
 	}
 })
 
+// Delete route
+router.delete("/photo/:photoId", async (req, res, next) => {
+	console.log('|||||||||||||||||||||||||||||||||||hitting photo delete route ||||||||||||||||||||||||||||||||||||||');
+	try {
+		const photoToDelete = await Photo.findById(req.params.photoId)
+		const userId = await photoToDelete.user
+
+		await Message.deleteMany({"photo": req.params.photoId})
+		await Photo.findByIdAndRemove(req.params.photoId)
+
+		res.redirect(`/photos/${userId}`)
+
+	} catch (err) {
+		next(err)
+	}
+})
+
+// Redirect to nearest show page
 router.get('/', (req, res) => {
 	console.log(req.query);
 	res.redirect(`/photos/${req.query.user}/newest`)  /// redirect to above around
 })
+
 
 module.exports = router

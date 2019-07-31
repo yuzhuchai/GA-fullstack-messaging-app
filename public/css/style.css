@@ -1,5 +1,7 @@
-body{
+html, body{
     /*background-color: lavender;*/
+    height: 100%;
+    width: 100%;
 }
 
 h1{
@@ -64,7 +66,7 @@ footer{
 
 #imageindexcontainer{
     margin: auto;
-    height:500px;
+    height:80%;
     width:90%;
     border:1px solid black;
     overflow-x: scroll;

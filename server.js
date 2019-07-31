@@ -20,7 +20,7 @@ app.use(methodOverride("_method"))
 
 
 app.use((req,res,next)=>{
-  console.log("hitting the custom middleware");
+  // console.log("hitting the custom middleware");
   res.locals.loggedIn = req.session.loggedIn
   res.locals.username = req.session.username
   res.locals.userId = req.session.userId

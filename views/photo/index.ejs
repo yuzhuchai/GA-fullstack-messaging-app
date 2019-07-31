@@ -25,6 +25,9 @@
 			<p class='score'>this is the photo avg score, reformat later</p>
 			<br/>
 			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
+			<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
+				<button type="submit">Delete</button>
+			</form>
 		</div>
 	<% }) %>
 

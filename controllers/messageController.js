@@ -18,15 +18,16 @@ router.post("/", async (req,res,next)=>{
     createdMessage.photo = photoFound
 		createdMessage.title = req.body.title
 		createdMessage.content = req.body.content
-		createdMessage.price = req.body.value
+		createdMessage.price = req.body.price
     createdMessage.username = userFound.username
-
+    createdMessage.save()
 		res.redirect(`/photos/photo/${photoFound._id}`)
 	} catch(err){
 		next(err)
 	}
 })
 // Show route
+
 // Edit page
 
 

@@ -20,21 +20,7 @@
 		<div id="messagedisplay">
 
 <!-- the code between this seperator is creating the bug in the page.      -->
-			<%for (let i = 0; i < messages.length; i++) {%>
-				<div class="messageIndex">
-					<!-- we also neex to add edit and delete button to each message index -->
-					<div class="username"><%=messages[i].username%></div>
-					<div class="title"><%=messages[i].title%></div>
-					<div class="critique"><%=messages[i].content%></div>
-					<div class="price"><%=messages[i].price%></div>
-					<form>
-						<button>delete</button>
-					</form>
-					<form>
-						<button>edit</button>
-					</form>
-				</div>
-			<%}%>
+
 <!-- the code between this seperator is creating the bug in the page.      -->
 
 		</div>
@@ -44,7 +30,7 @@
 					<h3>add a critique for this art</h3>
 					<form action="/messages" method="POST">
 						<input type="text" name="title" placeholder="Title">
-						<input type="text" name="critique" placeholder="Enter a critique...">
+						<input type="text" name="content" placeholder="Enter a critique...">
 						<input type="text" name="price" placeholder="$0">
 						<input type = "hidden" name = "photoId" value="<%=photo.id%>"/>
 						<button type="submit" id="submitCritique">Flame this boi</button>

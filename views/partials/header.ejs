@@ -11,10 +11,10 @@
   <button>logOut</button>	
 </form>
 <!-- this userid comes from the res.locals -->
-<form action="users/<%=userId%>?_method=DELETE" method="POST">
+<form action="/users/<%=userId%>?_method=DELETE" method="POST">
 	<button>Delete Account</button>
 </form>
-<form>
+<form action="/users/<%=userId%>/edit" method="GET">
 	<button>Edit Profile</button>
 </form>
 </nav>

@@ -33,16 +33,29 @@
 
 <!-- the code between this seperator is creating the bug in the page.      -->
 			<%for (let i = 0; i < critiques.length; i++) {%>
+		<%if (username === critiques[i].username){%>
 				<div class="messageIndex">
 					<!-- we also need to add edit and delete button to each message index -->
 				<a href="/messages/<%=critiques[i]._id%>">
-					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
+					<div class="username">you commented on <%=critiques[i].date.toLocaleString()%></div>
 					<div class="title">TITLE: <%=critiques[i].title%></div>
 					<div class="critique">CONTENT: <%=critiques[i].content%></div>
 					<div class="price">PRICE: <%=critiques[i].price%>$</div>
 					<!-- <input type="hidden" name=""> -->
 				</div>
 			</a>
+			<% }else{%>
+
+			<div class="messageIndex">
+					<!-- we also need to add edit and delete button to each message index -->
+					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
+					<div class="title">TITLE: <%=critiques[i].title%></div>
+					<div class="critique">CONTENT: <%=critiques[i].content%></div>
+					<div class="price">PRICE: <%=critiques[i].price%>$</div>
+					<!-- <input type="hidden" name=""> -->
+				</div>
+			<%}%>
+
 			<%}%>
 <!-- the code between this seperator is creating the bug in the page.      -->
 

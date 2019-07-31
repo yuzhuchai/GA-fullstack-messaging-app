@@ -27,7 +27,7 @@
 					<div class="title"><%=critiques[i].title%></div>
 					<div class="critique"><%=critiques[i].content%></div>
 					<div class="price"><%=critiques[i].price%></div>
-					<form>
+					<form action="/messages/<%=critiques[i]._id%>?_method=DELETE" method="POST">
 						<button>delete</button>
 					</form>
 					<form>

@@ -27,8 +27,19 @@ router.post("/", async (req,res,next)=>{
 	}
 })
 // Show route
-
 // Edit page
+router.get("/:messageId", async	(req,res,next)=>{
+	try{
+		const foundMessage = await Message.findById(req.params.messageId)
+		const foundPhoto = await Photo.findById(foundMessage.photo)
+		res.render("message/show.ejs",{
+			critique: foundMessage,
+			photo: foundPhoto
+		})
+	}catch(err){
+		next(err)
+	}
+})
 
 // Delete route
 router.delete("/:messageId", async (req, res, next) => {
@@ -43,6 +54,18 @@ router.delete("/:messageId", async (req, res, next) => {
 		next(err)
 	}
 })
+
+
+router.put("/:messageId",async (req,res,next)=>{
+	try{
+		const editMessage = await Message.findByIdAndUpdate(req.params.messageId, req.body,{new:true})
+
+		res.redirect(`/photos/photo/${editMessage.photo}`)
+	}catch(err){
+		next(err)
+	}
+})
+
 
 
 module.exports = router

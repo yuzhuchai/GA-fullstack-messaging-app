@@ -26,17 +26,14 @@
 			<%for (let i = 0; i < critiques.length; i++) {%>
 				<div class="messageIndex">
 					<!-- we also need to add edit and delete button to each message index -->
-					<div class="username"><%=critiques[i].username%></div>
-					<div class="title"><%=critiques[i].title%></div>
-					<div class="critique"><%=critiques[i].content%></div>
-					<div class="price"><%=critiques[i].price%></div>
-					<form action="/messages/<%=critiques[i]._id%>?_method=DELETE" method="POST">
-						<button>delete</button>
-					</form>
-					<form>
-						<button>edit</button>
-					</form>
+				<a href="/messages/<%=critiques[i]._id%>">
+					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
+					<div class="title">TITLE: <%=critiques[i].title%></div>
+					<div class="critique">CONTENT: <%=critiques[i].content%></div>
+					<div class="price">PRICE: <%=critiques[i].price%>$</div>
+					<!-- <input type="hidden" name=""> -->
 				</div>
+			</a>
 			<%}%>
 <!-- the code between this seperator is creating the bug in the page.      -->
 

@@ -7,6 +7,14 @@
   </head>
   <body>
 <nav>
+
+<div>
+	<% if (loggedIn){%>
+	Welcome <%=username.toUpperCase()%> &nbsp
+	<%}else{%>
+	<a href="/">Login </a>
+	<%}%>
+</div>
 <form action="/auth/logout" method="GET">
   <button>logOut</button>	
 </form>

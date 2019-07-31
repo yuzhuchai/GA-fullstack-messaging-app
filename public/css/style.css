@@ -71,3 +71,8 @@ footer{
     overflow-y: hidden;
     white-space: nowrap;
 }
+
+nav{
+    display: flex;
+    flex-wrap: none;
+}

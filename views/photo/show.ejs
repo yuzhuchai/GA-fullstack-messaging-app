@@ -1,7 +1,7 @@
 <% include ../partials/header.ejs%>
 
 
-	<h1><%=photo.title%></h1>	
+	<h1><%=photo.title%></h1>
 	<div class="door">
 		<div class="galleryDoor"></div>
 		<div class="navigationDoor"></div>
@@ -32,6 +32,7 @@
 						<input type="text" name="title" placeholder="Title">
 						<input type="text" name="critique" placeholder="Enter a critique...">
 						<input type="text" name="price" placeholder="$0">
+						<input type = "hidden" name = "photoId" value="<%=photo.id%>"/>
 						<button type="submit" id="submitCritique">Flame this boi</button>
 					</form>
 				</div>

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const messageSchema = new mongoose.Schema({
-	photo: [{
+	photoId: [{
     type: mongoose.Schema.Types.ObjectId,  // ._id
     ref: 'Photo'
   }],

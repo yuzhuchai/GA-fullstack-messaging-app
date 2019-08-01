@@ -76,6 +76,7 @@ footer{
 
 
 
+
 #galleryFloor{
     /*border:black 2px solid;*/
     background-color: #912207;
@@ -87,9 +88,11 @@ footer{
     margin: 0;
 }
 
+
 footer{
     align-self: flex-end;
 }
+
 
 
 
@@ -119,3 +122,4 @@ nav > .togglenav{
     border-radius: 50px;
     border: 1px solid black;
 }
+

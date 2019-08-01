@@ -31,6 +31,14 @@ h1{
   width: 90%;
 }
 
+<<<<<<< HEAD
+=======
+
+footer{
+    align-self: flex-end;
+}
+
+>>>>>>> 8bc411b6d6da989abde2af2588149427cdd9efc7
 #doortoothergallery{
     float: right;
 }

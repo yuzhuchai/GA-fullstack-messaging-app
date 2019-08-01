@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 // const connectionString = 'mongodb://localhost/gallery';
 
 let connectionString
-if(process.new.NODE_ENV == "production") {
-  connStr = process.env.DB_URL
+if(process.env.NODE_ENV == "production") {
+  connectionString = process.env.DB_URL
 } else {
   connectionString = 'mongodb://localhost/gallery'
 }

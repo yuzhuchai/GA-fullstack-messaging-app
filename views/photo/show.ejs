@@ -49,26 +49,24 @@
                 </a>
       				</div>
       		<% }else{%>
-      			<div class="messageIndex">
-      					<!-- we also need to add edit and delete button to each message index -->
-      					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
-      					<div class="title">TITLE: <%=critiques[i].title%></div>
-      					<div class="critique">CONTENT: <%=critiques[i].content%></div>
-      					<div class="price">PRICE: <%=critiques[i].price%>$</div>
-      				</div>
+        			<div class="messageIndex">
+        					<!-- we also need to add edit and delete button to each message index -->
+        					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
+        					<div class="title">TITLE: <%=critiques[i].title%></div>
+        					<div class="critique">CONTENT: <%=critiques[i].content%></div>
+        					<div class="price">PRICE: <%=critiques[i].price%>$</div>
+        			</div>
       			<%}%>
       		<%}%>
-    		</div>
+          <div id="createMessagePanel">
+            <div id="critiqueInput">
+            <%if(photo.user.username !== username){%>
+              <h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
+            <%}%>
+            </div>
+          </div>
+        </div>
   		<!-- create critiques -->
-  			<div id="createMessagePanel">
-  				<div id="critiqueInput">
-  				<%if(photo.user.username !== username){%>
-  					<h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
-  				<%}else{%>
-  				  <p>comments!</p>
-  				<%}%>
-  				</div>
-  			</div>
   	</div>
   </div>
 </div>

@@ -17,8 +17,7 @@
 
 #photoTitle {
   flex: 1;
-  justify-content: center;
-  align-self: center;
+  text-align: center;
 }
 
 .leftcol {
@@ -45,18 +44,25 @@
     float: right;
 }
 
+#messagedisplay{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  height: 60%;
+  border: 2px solid black;
+  overflow-y: scroll;
+}
 
 .messageIndex{
+    flex: 6;
     margin:10px;
     border: 1px solid black;
 }
 
-#messagedisplay{
-    width:50%;
-    height: 60%;
-    border: 2px solid black;
-    overflow-y: scroll;
+#createMessagePanel {
+  flex: 3;
 }
+
 
 footer{
     text-align: center;
@@ -65,8 +71,4 @@ footer{
 
 footer{
     align-self: flex-end;
-}
-
-nav > form, a{
-    display: none;
 }

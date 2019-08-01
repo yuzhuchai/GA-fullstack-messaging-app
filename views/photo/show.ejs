@@ -24,49 +24,51 @@
 	</div>
 
 
-<div class="container">
+  <div class="container">
 
-	<div id="newestPhoto" class="leftcol">
-		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
-    <%if (photo.user.username === username){%>
-  		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
-  			<button type="submit">Delete</button>
-  		</form>
-    <%}%>
-	</div>
+  	<div id="newestPhoto" class="leftcol">
+  		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
+      <%if (photo.user.username === username){%>
+    		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
+    			<button type="submit">Delete</button>
+    		</form>
+      <%}%>
+  	</div>
 
-  	<div id="critiques" class="rightcol">
+  	<div class="rightcol">
     	<div id="messagedisplay">
         <h1 id="photoTitle"><%=photo.title%></h1>
-        <%for (let i = 0; i < critiques.length; i++) {%>
-      		<%if (username === critiques[i].username){%>
-      				<div class="messageIndex">
-        				<a href="/messages/<%=critiques[i]._id%>">
-        					<div class="username">you commented on <%=critiques[i].date.toLocaleString()%></div>
-        					<div class="title">TITLE: <%=critiques[i].title%></div>
-        					<div class="critique">CONTENT: <%=critiques[i].content%></div>
-        					<div class="price">PRICE: <%=critiques[i].price%>$</div>
-                </a>
-      				</div>
-      		<% }else{%>
-        			<div class="messageIndex">
-        					<!-- we also need to add edit and delete button to each message index -->
-        					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
-        					<div class="title">TITLE: <%=critiques[i].title%></div>
-        					<div class="critique">CONTENT: <%=critiques[i].content%></div>
-        					<div class="price">PRICE: <%=critiques[i].price%>$</div>
-        			</div>
-      			<%}%>
-      		<%}%>
-          <div id="createMessagePanel">
-            <div id="critiqueInput">
-            <%if(photo.user.username !== username){%>
-              <h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
-            <%}%>
-            </div>
-          </div>
+        <div class="messageIndex">
+          <%for (let i = 0; i < critiques.length; i++) {%>
+              <div class="message">
+                  <!-- we also need to add edit and delete button to each message index -->
+                  <%if (username === critiques[i].username){%>
+                    <div class="messageIndex">
+                    <a href="/messages/<%=critiques[i]._id%>">
+                      <div class="username">YOUR CRITIQUE: </div>
+                      <div class="title">TITLE: <%=critiques[i].title%></div>
+                      <div class="critique">CONTENT: <%=critiques[i].content%></div>
+                      <div class="price">PRICE: <%=critiques[i].price%>$</div>
+                    </a>
+                  </div>
+                  <%}else{%>
+                    <div class="username"><%=critiques[i].username.toUpperCase()%>'S CRITIQUE: "</div>
+                    <div class="title">TITLE: <%=critiques[i].title%></div>
+                    <div class="critique">CONTENT: <%=critiques[i].content%></div>
+                    <div class="price">PRICE: <%=critiques[i].price%>$</div>
+                  <%}%>
+
+              </div>
+          <%}%>
         </div>
-  		<!-- create critiques -->
+        <div id="createMessagePanel">
+          <%if(photo.user.username !== username){%>
+              <div id="critiqueInput">
+                <h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
+              </div>
+          <%}%>
+        </div>
+      </div>
   	</div>
   </div>
 </div>

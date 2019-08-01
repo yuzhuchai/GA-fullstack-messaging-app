@@ -1,9 +1,12 @@
 
-.container{
+.container {
   display: flex;
   flex-direction: row;
   align-items: space-around;
   height: 100%;
+}
+a {
+  text-decoration: none;
 }
 
 .leftcol, .rightcol{
@@ -15,10 +18,6 @@
   align-items: center;
 }
 
-#photoTitle {
-  flex: 1;
-  text-align: center;
-}
 
 .leftcol {
   flex: 6;
@@ -49,18 +48,26 @@
   flex-direction: column;
   width:50%;
   height: 60%;
-  border: 2px solid black;
-  overflow-y: scroll;
+  border: 1px solid black;
+}
+
+#photoTitle {
+  flex: 1;
+  text-align: center;
 }
 
 .messageIndex{
     flex: 6;
-    margin:10px;
-    border: 1px solid black;
+    overflow-y: scroll;
+}
+.message {
+  border: 1px solid black;
+  margin: 30px;
 }
 
 #createMessagePanel {
-  flex: 3;
+  flex: 1;
+  text-align: center;
 }
 
 

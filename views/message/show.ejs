@@ -7,10 +7,12 @@
     <title></title>
   </head>
 <% include ../partials/header.ejs%>
-	<a href="/photos/<%=photo.user._id%>">back to gallery</a>
-</div>
-</nav>
-</div>
+				<form action="/photos/<%=photo.user._id%>" method="GET">
+					<button>back to their gallery</button>
+				</form>
+			</div>
+		</nav>
+	</div>
 </div>
 
 

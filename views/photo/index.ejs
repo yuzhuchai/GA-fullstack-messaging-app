@@ -15,7 +15,9 @@
 		<button>upload a new photo</button>
 	</form>
 <%}else{%>
-	<a href="/photos/<%=userId%>">back to your own gallery</a><br/>
+<form action="/photos/<%=userId%>">
+	<button>Back to your own gallery</button>
+</form>
 <%}%>
 
 		<div id="doortoothergallery">

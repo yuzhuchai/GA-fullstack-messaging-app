@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="/css/showStyle.css">
     <title></title>
   </head>
-<% include ../partials/header.ejs%>
-<a href="/photos/<%=photo.user%>">back to gallery</a>
-</div>
-</nav>
-</div>
+			<% include ../partials/header.ejs%>
+				<form aciton="/photos/<%=photo.user%>" method='GET'>
+					<button>back to gallery</button>
+				</form>
+			</div>
+		</nav>
+	</div>
 </div>
 
 

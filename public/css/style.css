@@ -19,6 +19,10 @@ footer{
 
 
 
+.roast{
+	display: inline-block;
+}
+
 #navcontainercontainer{
     display: flex;
     justify-content: flex-end;
@@ -31,7 +35,7 @@ footer{
 
 nav > .togglenav{
     text-align: right;
-    width:100px;
+    width:200px;
     display: none;
     position: absolute;
     z-index: 1;

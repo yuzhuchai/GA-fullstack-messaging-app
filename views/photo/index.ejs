@@ -18,17 +18,20 @@
 <form action="/photos/<%=userId%>">
 	<button>Back to your own gallery</button>
 </form>
+<br/>
+<br/>
+<br/>
 <%}%>
 
 		<div id="doortoothergallery">
 		<form action="/photos/<%=users._id%>" method="GET">
-			other gallery
-			<button type="submit">Roast</button>
-			<select name="user">
+			<br/>
+			Go to gallery
+			<select  class="roast" name="user">
 				<% for (let i = 0; i < users.length; i++) {%>
 						<option value="<%=users[i]._id%>"><%=users[i].username%></option>
 				<%}%>
-			</select>
+			</select> and <button class="roast" type="submit">Roast</button>
 		</form>
 		</div>
 </div>

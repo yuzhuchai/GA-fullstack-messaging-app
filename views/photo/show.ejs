@@ -6,7 +6,8 @@
     <title></title>
   </head>
 <% include ../partials/header.ejs%>
-
+<a href="/photos/<%=photo.user._id%>">back to gallery</a>
+</nav>
 
 	<h1><%=photo.title%></h1>
 	<div class="door">
@@ -73,7 +74,6 @@
 	</div>
 
 </div>
-	<a href="/photos/<%=photo.user._id%>">back to gallery</a>
 
 
 <% include ../partials/footer.ejs%>

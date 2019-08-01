@@ -5,7 +5,16 @@
     <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
     <title></title>
   </head>
+
 <% include ../partials/header.ejs%>
+<%if(username === thisUser.username){%>
+	<form action="/photos/new" method="GET">
+		<button>upload a new photo</button>
+	</form>
+<%}else{%>
+	<a href="/photos/<%=userId%>">back to your own gallery</a>
+<%}%>
+</nav>
 
 
 		<div id="doortoothergallery">
@@ -20,15 +29,18 @@
 		</form>
 		</div>
 
-<%if (username !== thisUser.username){%>
-	<h1><%=thisUser.username%>'s Gallery</h1> 
-<%}else{%>
-	<h1>Your Gallery</h1>
-<%}%>
 
 
 <div id="imageindexcontainer">
-
+	<%if (username !== thisUser.username){%>
+		<div class="imgdiv">
+		<h1><%=thisUser.username%>'s Gallery</h1> 		
+		</div>
+	<%}else{%>
+	<div class="imgdiv">
+		<h1>Your Gallery</h1>
+	</div>
+	<%}%>
 	<% photos.forEach((photo) => { %>
 		<div class="imgdiv">
 			<p class="imgtitle"><%=photo.title%></p>
@@ -45,19 +57,8 @@
 
 </div>
 
-<%if(username === thisUser.username){%>
-	<form action="/photos/new" method="GET">
-		<button>upload a new photo</button>
-	</form>
-<%}else{%>
-	<a href="/photos/<%=userId%>">back to your own gallery</a>
-<%}%>
 
 
-<div id="galleryFloor">
-	  <br><br>
-  <footer>©2019 Sebastian Portuond & Yuzhu Chai <small>present</small> GLASS HALF EMPTY HOTEL</footer>
-</div>
 
-</body>
-</html>
+
+<% include ../partials/footer.ejs%>

@@ -4,7 +4,9 @@
     	<% if (loggedIn){%>
     	Welcome <%=username.toUpperCase()%> &nbsp
     	<%}else{%>
-    	<a href="/">Login </a>
+        <form action="/" method="GET">
+            <button>Login</button>
+        </form>
     	<%}%>
     </div>
     <form action="/auth/logout" method="GET">
@@ -17,4 +19,4 @@
     <form action="/users/<%=userId%>/edit" method="GET">
     	<button>Edit Profile</button>
     </form>
-  </nav>
+

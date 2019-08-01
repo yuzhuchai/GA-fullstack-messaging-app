@@ -52,11 +52,15 @@ footer{
     margin: auto;
     height:80%;
     width:90%;
-    border:1px solid black;
+    /*border:1px solid black;*/
     overflow-x: scroll;
     overflow-y: visible;
     white-space: nowrap;
 }
+#imageindexcontainer::-webkit-scrollbar { 
+    height: 0px;  /* Remove scrollbar space */
+    background: transparent;            
+} 
 
 
 

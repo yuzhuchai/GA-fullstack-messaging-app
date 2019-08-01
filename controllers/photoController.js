@@ -7,7 +7,7 @@ const multer = require("multer")
 const fs = require("fs")
 const requireLogIn = require("../lib/requireAuth.js")
 
-const upload = multer({dest: "uploads"})
+const upload = multer({dest: "uploads/"})
 
 //photo new route
 router.get("/new", requireLogIn, (req,res,next)=>{

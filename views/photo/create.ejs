@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/css/showStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title></title>
   </head>
@@ -17,10 +17,10 @@
 
 	<h1>upload a new photo</h1>
 	<form enctype="multipart/form-data" action="/photos" method="POST">
-		Title:<br/> <input type="text" name="title"><br/>
-		<input type="file" name="photo"><br/><br/>
+		<input type="text" name="title" placeholder="title"><br/>
+		<input id="file-input" type="file" name="photo" placeholder="uploadfile"><br/><br/>
 		<!-- <input type="date" name="date">/ -->
-		<button>submit</button>
+		<button class="button">submit</button>
 	</form>
 
 

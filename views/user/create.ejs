@@ -3,18 +3,27 @@
   <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title></title>
   </head>
   <body>
+  <% include ../partials/header.ejs%>
+      </div>
+    </nav>
+  </div>
+</div>
 
-<h2>Register</h2>
+
+
+<h1>Register</h1>
 <p><%=message%></p>
 <form action="/auth/register" method="POST">
   <input type="text" name="username" placeholder="username"><br/>
   <input type="password" name="password" placeholder="password"><br/>
   <input type="email" name="email" placeholder="email"><br/>
-  <button type='submit'>Register</button>
+  <div class=button><button type='submit'>Register</button></div>
 </form>
 
-<% include ../partials/footer.ejs%>
+</body>
+</html>

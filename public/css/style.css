@@ -5,8 +5,12 @@ html, body{
     height: 100%;
     width: 100%;
 }
+
 #galleryWall {
+  display: flex;
+  flex-direction: column;
   flex: 7;
+  height: 100%;
   background-image: url('/images/wall.jpg');
   background-position: center;
   background-size: cover;
@@ -14,8 +18,8 @@ html, body{
 
 #galleryFloor{
     display: flex;
+    height: 100%;
     flex: 3;
-    color: white;
     border-top:black 1px solid;
     background-image: url('/images/floor.png');
     background-size: cover;
@@ -23,14 +27,10 @@ html, body{
     justify-content: center;
 }
 
-
-
 footer{
     align-self: flex-end;
+    color: white;
 }
-
-
-
 
 #navcontainercontainer{
     display: flex;
@@ -51,10 +51,10 @@ nav > .togglenav{
 }
 
 #navClick > .logo{
-    margin:3px;
+    margin:1px;
     display: inline-block;
-    width:15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 50px;
     border: 1px solid black;
 }

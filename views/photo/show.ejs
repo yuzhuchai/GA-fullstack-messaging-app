@@ -17,7 +17,6 @@
 </div>
 
 
-	<h1><%=photo.title%></h1>
 	<div class="door">
 		<div class="galleryDoor"></div>
 		<div class="navigationDoor"></div>
@@ -37,6 +36,7 @@
 
   	<div id="critiques" class="rightcol">
     	<div id="messagedisplay">
+        <h1 id="photoTitle"><%=photo.title%></h1>
         <%for (let i = 0; i < critiques.length; i++) {%>
       		<%if (username === critiques[i].username){%>
       				<div class="messageIndex">

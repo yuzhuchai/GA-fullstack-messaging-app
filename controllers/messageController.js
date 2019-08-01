@@ -6,6 +6,8 @@ const User = require("../models/user.js")
 const bodyParser = require("body-parser")
 const requireLogIn = require("../lib/requireAuth.js")
 
+router.use(requireLogIn)
+
 router.get("/:photoId/new", async(req, res, next) => {
 	try {
 		const foundPhoto = await Photo.findById(req.params.photoId)
@@ -38,7 +40,7 @@ router.post("/", async (req,res,next)=>{
 })
 // Show route
 // Edit page
-router.get("/:messageId", requireLogIn, async (req,res,next)=>{
+router.get("/:messageId", async (req,res,next)=>{
 	try{
 		const foundMessage = await Message.findById(req.params.messageId)
 		const foundPhoto = await Photo.findById(foundMessage.photo)
@@ -52,7 +54,7 @@ router.get("/:messageId", requireLogIn, async (req,res,next)=>{
 })
 
 // Delete route
-router.delete("/:messageId", requireLogIn, async (req, res, next) => {
+router.delete("/:messageId", async (req, res, next) => {
 	try {
 		const foundMessage = await Message.findById(req.params.messageId)
 		const photoId = await foundMessage.photo
@@ -66,7 +68,7 @@ router.delete("/:messageId", requireLogIn, async (req, res, next) => {
 })
 
 
-router.put("/:messageId", requireLogIn, async (req,res,next)=>{
+router.put("/:messageId", async (req,res,next)=>{
 	try{
 		const editMessage = await Message.findByIdAndUpdate(req.params.messageId, req.body,{new:true})
 

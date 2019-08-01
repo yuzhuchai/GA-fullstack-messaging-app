@@ -1,67 +1,59 @@
-html, body{
-    /*background-color: lavender;*/
-    height: 100%;
-    width: 100%;
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  height: 100%;
 }
 
-h1{
-    margin:0 auto;
-    text-align: center;
+.leftcol, .rightcol{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
+
+#photoTitle {
+  flex: 1;
+  justify-content: center;
+  align-self: center;
+}
+
+.leftcol {
+  flex: 6;
+}
+
+.rightcol {
+  flex: 4;
+}
+
 
 .thumbnail{
     width: 100%;
 }
 
-.imgdiv{
-    display: inline-block;
-    width:30%;
-    float: none;
-    margin:auto 1.5%;
-}
-
-.imgtitle{
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 10px;
-}
 
 .imgshow{
-  width: 90%;
+  max-height: 90%;
+  max-width: 90%;
+  padding: 30px;
 }
 
-<<<<<<< HEAD
-=======
-
-footer{
-    align-self: flex-end;
-}
-
->>>>>>> 8bc411b6d6da989abde2af2588149427cdd9efc7
 #doortoothergallery{
     float: right;
 }
 
-.container{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: space-around;
-}
 
-.leftcol,.rightcol{
-    width:48%;
-    align-self:center;
-}
 .messageIndex{
     margin:10px;
     border: 1px solid black;
 }
 
 #messagedisplay{
-    width:90%;
-    height:400px;
+    width:50%;
+    height: 60%;
     border: 2px solid black;
     overflow-y: scroll;
 }
@@ -72,28 +64,6 @@ footer{
 }
 
 
-#imageindexcontainer{
-    margin: auto;
-    height:80%;
-    width:90%;
-    border:1px solid black;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-
-
-
-#galleryFloor{
-    /*border:black 2px solid;*/
-    background-color: #912207;
-    width:100%;
-    height:30%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
 
 footer{
     align-self: flex-end;

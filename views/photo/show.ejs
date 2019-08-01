@@ -18,7 +18,6 @@
 </div>
 
 
-	<h1><%=photo.title%></h1>
 	<div class="door">
 		<div class="galleryDoor"></div>
 		<div class="navigationDoor"></div>
@@ -29,60 +28,49 @@
 
 	<div id="newestPhoto" class="leftcol">
 		<img class="imgshow" src="/photos/serve/<%=photo.id%>">
-<%if (photo.user.username === username){%>
-		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
-			<button type="submit">Delete</button>
-		</form>
-<%}%>
+    <%if (photo.user.username === username){%>
+  		<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
+  			<button type="submit">Delete</button>
+  		</form>
+    <%}%>
 	</div>
 
-
-	<div id="critiques" class="rightcol">
-		<!-- show critiques -->
-		<div id="messagedisplay">
-
-<!-- the code between this seperator is creating the bug in the page.      -->
-			<%for (let i = 0; i < critiques.length; i++) {%>
-		<%if (username === critiques[i].username){%>
-				<div class="messageIndex">
-					<!-- we also need to add edit and delete button to each message index -->
-				<a href="/messages/<%=critiques[i]._id%>">
-					<div class="username">you commented on <%=critiques[i].date.toLocaleString()%></div>
-					<div class="title">TITLE: <%=critiques[i].title%></div>
-					<div class="critique">CONTENT: <%=critiques[i].content%></div>
-					<div class="price">PRICE: <%=critiques[i].price%>$</div>
-					<!-- <input type="hidden" name=""> -->
-				</div>
-			</a>
-			<% }else{%>
-
-			<div class="messageIndex">
-					<!-- we also need to add edit and delete button to each message index -->
-					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
-					<div class="title">TITLE: <%=critiques[i].title%></div>
-					<div class="critique">CONTENT: <%=critiques[i].content%></div>
-					<div class="price">PRICE: <%=critiques[i].price%>$</div>
-					<!-- <input type="hidden" name=""> -->
-				</div>
-			<%}%>
-
-			<%}%>
-<!-- the code between this seperator is creating the bug in the page.      -->
-
-		</div>
-		<!-- create critiques -->
-			<div id="createMessagePanel">
-				<div id="critiqueInput">
-				<%if(photo.user.username !== username){%>
-					<h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
-				<%}else{%>
-				  <p>comments!</p>
-				<%}%>
-				</div>
-			</div>
-	</div>
-
+  	<div id="critiques" class="rightcol">
+    	<div id="messagedisplay">
+        <h1 id="photoTitle"><%=photo.title%></h1>
+        <%for (let i = 0; i < critiques.length; i++) {%>
+      		<%if (username === critiques[i].username){%>
+      				<div class="messageIndex">
+        				<a href="/messages/<%=critiques[i]._id%>">
+        					<div class="username">you commented on <%=critiques[i].date.toLocaleString()%></div>
+        					<div class="title">TITLE: <%=critiques[i].title%></div>
+        					<div class="critique">CONTENT: <%=critiques[i].content%></div>
+        					<div class="price">PRICE: <%=critiques[i].price%>$</div>
+                </a>
+      				</div>
+      		<% }else{%>
+      			<div class="messageIndex">
+      					<!-- we also need to add edit and delete button to each message index -->
+      					<div class="username"><%=critiques[i].username.toUpperCase()%> commented on <%=critiques[i].date.toLocaleString()%></div>
+      					<div class="title">TITLE: <%=critiques[i].title%></div>
+      					<div class="critique">CONTENT: <%=critiques[i].content%></div>
+      					<div class="price">PRICE: <%=critiques[i].price%>$</div>
+      				</div>
+      			<%}%>
+      		<%}%>
+    		</div>
+  		<!-- create critiques -->
+  			<div id="createMessagePanel">
+  				<div id="critiqueInput">
+  				<%if(photo.user.username !== username){%>
+  					<h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
+  				<%}else{%>
+  				  <p>comments!</p>
+  				<%}%>
+  				</div>
+  			</div>
+  	</div>
+  </div>
 </div>
-
 
 <% include ../partials/footer.ejs%>

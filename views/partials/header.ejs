@@ -1,31 +1,30 @@
 <body>
-
-<div id=navcontainercontainer>
-<div id=navcontainer>
-    <div id="navClick">
-        <div class="logo"></div>
-        <div class="logo"></div>
-        <div class="logo"></div>
-    </div>
-      <nav>
-            <% if (loggedIn){%>
-            Welcome <%=username.toUpperCase()%> &nbsp
-            <%}else{%>
-    <div class="togglenav">
-            <form action="/" method="GET">
-                <button>Login</button>
-            </form>
-    </div>
-        	<%}%>
-    <div class="togglenav">
-        <form action="/auth/logout" method="GET">
-          <button>logOut</button>
-        </form>
-        <!-- this userid comes from the res.locals -->
-        <form action="/users/<%=userId%>?_method=DELETE" method="POST">
-        	<button>Delete Account</button>
-        </form>
-        <form action="/users/<%=userId%>/edit" method="GET">
-        	<button>Edit Profile</button>
-        </form>
-
+  <div id="galleryWall">
+    <div id="navcontainercontainer">
+      <div id="navcontainer">
+          <div id="navClick">
+              <div class="logo"></div>
+              <div class="logo"></div>
+              <div class="logo"></div>
+          </div>
+          <nav>
+                  <% if (loggedIn){%>
+                  Welcome <%=username.toUpperCase()%> &nbsp
+                  <%}else{%>
+          <div class="togglenav">
+                  <form action="/" method="GET">
+                      <button>Login</button>
+                  </form>
+          </div>
+              	<%}%>
+          <div class="togglenav">
+              <form action="/auth/logout" method="GET">
+                <button>logOut</button>
+              </form>
+              <!-- this userid comes from the res.locals -->
+              <form action="/users/<%=userId%>?_method=DELETE" method="POST">
+              	<button>Delete Account</button>
+              </form>
+              <form action="/users/<%=userId%>/edit" method="GET">
+              	<button>Edit Profile</button>
+              </form>

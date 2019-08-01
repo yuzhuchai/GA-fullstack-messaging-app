@@ -10,3 +10,14 @@ $("#navClick").on("click",() => {
 	}
 })
 
+
+
+$(document).on("keydown",(e) => {
+	console.log("i pressed a key");
+	// console.log(e);
+	if(e.key === "ArrowLeft"){
+		$("#scroll").offset({"left":"+=10"})
+	} else if (e.key === 'ArrowRight'){
+		$("#scroll").offset({"left":"-=10"})
+	}
+})

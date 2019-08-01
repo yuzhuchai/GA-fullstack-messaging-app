@@ -18,7 +18,10 @@ $(document).on("keydown",(e) => {
 	// console.log(e);
 		if(e.key === "ArrowLeft"){
 			$("#scroll").offset({"left":"+=10"})
+			// $("#galleryFloor").css({"width":"-=10"})
+
 		} else if (e.key === 'ArrowRight'){
 			$("#scroll").offset({"left":"-=10"})
+			// $("#galleryFloor").css({"width":"+=10px"})
 		}
 })

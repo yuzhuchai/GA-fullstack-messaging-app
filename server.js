@@ -24,6 +24,14 @@ app.use((req,res,next)=>{
   res.locals.loggedIn = req.session.loggedIn
   res.locals.username = req.session.username
   res.locals.userId = req.session.userId
+  if(req.session.message) {
+    res.locals.message = req.session.message
+  }
+  else {
+    res.locals.message = undefined
+  }
+
+  req.session.message = undefined
   next()
 })
 
@@ -45,13 +53,11 @@ app.use("/messages",messageController)
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
-    message: req.session.message
   });
 });
 
 app.get('/user/new', (req, res, next) => {
     res.render('./user/create.ejs', {
-      message: req.session.message
     })
 })
 

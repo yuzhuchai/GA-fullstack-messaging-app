@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
     <title></title>
   </head>
@@ -21,7 +22,7 @@
 		</div>
 
 <%if (username !== thisUser.username){%>
-	<h1><%=thisUser.username%>'s Gallery</h1> 
+	<h1><%=thisUser.username%>'s Gallery</h1>
 <%}else{%>
 	<h1>Your Gallery</h1>
 <%}%>
@@ -35,7 +36,7 @@
 			<p class='score'>this is the photo avg score, reformat later</p>
 			<br/>
 			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
-	<%if(username === thisUser.username){%>		
+	<%if(username === thisUser.username){%>
 			<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">
 				<button type="submit">Delete</button>
 			</form>

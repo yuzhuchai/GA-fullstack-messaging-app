@@ -95,7 +95,6 @@ footer{
 
 
 
-
 #navcontainercontainer{
     display: flex;
     justify-content: flex-end;
@@ -122,4 +121,3 @@ nav > .togglenav{
     border-radius: 50px;
     border: 1px solid black;
 }
-

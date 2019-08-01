@@ -1,13 +1,13 @@
 <body>
-
-<div id=navcontainercontainer>
-<div id=navcontainer>
+<div id="galleryWall">
+<div id="navcontainercontainer">
+<div id="navcontainer">
     <div id="navClick">
         <div class="logo"></div>
         <div class="logo"></div>
         <div class="logo"></div>
     </div>
-      <nav>
+    <nav>
             <% if (loggedIn){%>
             Welcome <%=username.toUpperCase()%> &nbsp
             <%}else{%>
@@ -28,4 +28,3 @@
         <form action="/users/<%=userId%>/edit" method="GET">
         	<button>Edit Profile</button>
         </form>
-

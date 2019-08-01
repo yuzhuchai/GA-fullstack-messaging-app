@@ -1,9 +1,3 @@
-html, body{
-    /*background-color: lavender;*/
-    height: 100%;
-    width: 100%;
-}
-
 h1{
     margin:0 auto;
     text-align: center;
@@ -28,30 +22,28 @@ h1{
 }
 
 .imgshow{
-  width: 90%;
+  max-height: 90%;
+  max-width: 90%;
 }
-
-<<<<<<< HEAD
-=======
 
 footer{
     align-self: flex-end;
 }
 
->>>>>>> 8bc411b6d6da989abde2af2588149427cdd9efc7
 #doortoothergallery{
     float: right;
 }
 
 .container{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: space-around;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  align-items: space-around;
 }
 
 .leftcol,.rightcol{
-    width:48%;
+    display: flex;
+    flex: 1;
     align-self:center;
 }
 .messageIndex{

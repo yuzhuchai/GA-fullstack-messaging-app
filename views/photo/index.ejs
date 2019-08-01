@@ -5,30 +5,31 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-      <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
     <title></title>
   </head>
-<% include ../partials/header.ejs%>
-<%if(username === thisUser.username){%>
+
+  <% include ../partials/header.ejs%>
+  <%if(username === thisUser.username){%>
 	<form action="/photos/new" method="GET">
 		<button>upload a new photo</button>
 	</form>
-<%}else{%>
-	<a href="/photos/<%=userId%>">back to your own gallery</a><br/>
-<%}%>
+  <%}else{%>
+	  <a href="/photos/<%=userId%>">back to your own gallery</a><br/>
+  <%}%>
 
-		<div id="doortoothergallery">
-		<form action="/photos/<%=users._id%>" method="GET">
-			other gallery
-			<button type="submit">Roast</button>
-			<select name="user">
-				<% for (let i = 0; i < users.length; i++) {%>
-						<option value="<%=users[i]._id%>"><%=users[i].username%></option>
-				<%}%>
-			</select>
-		</form>
-		</div>
+	<div id="doortoothergallery">
+	<form action="/photos/<%=users._id%>" method="GET">
+		other gallery
+		<button type="submit">Roast</button>
+		<select name="user">
+			<% for (let i = 0; i < users.length; i++) {%>
+					<option value="<%=users[i]._id%>"><%=users[i].username%></option>
+			<%}%>
+		</select>
+	</form>
+	</div>
 </div>
 </nav>
 </div>
@@ -38,11 +39,10 @@
 
 
 
-
 <div id="imageindexcontainer">
 	<%if (username !== thisUser.username){%>
 		<div class="imgdiv">
-		<h1><%=thisUser.username%>'s Gallery</h1> 		
+		<h1><%=thisUser.username%>'s Gallery</h1>
 		</div>
 	<%}else{%>
 	<div class="imgdiv">
@@ -64,7 +64,7 @@
 	<% }) %>
 
 </div>
-
+</div>
 
 
 

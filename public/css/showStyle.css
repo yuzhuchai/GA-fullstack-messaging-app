@@ -63,12 +63,9 @@ footer{
     margin-top: 50px;
 }
 
-
-
 footer{
     align-self: flex-end;
 }
-
 
 nav > form, a{
     display: none;

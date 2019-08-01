@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
     <title></title>
   </head>
-
 <% include ../partials/header.ejs%>
 <%if(username === thisUser.username){%>
 	<form action="/photos/new" method="GET">
@@ -14,8 +13,6 @@
 <%}else{%>
 	<a href="/photos/<%=userId%>">back to your own gallery</a>
 <%}%>
-</nav>
-
 
 		<div id="doortoothergallery">
 		<form action="/photos/<%=users._id%>" method="GET">
@@ -28,6 +25,13 @@
 			</select>
 		</form>
 		</div>
+</div>
+</nav>
+</div>
+
+
+
+
 
 
 

@@ -74,10 +74,6 @@ footer{
     white-space: nowrap;
 }
 
-nav{
-    display: flex;
-    flex-wrap: none;
-}
 
 
 #galleryFloor{
@@ -93,4 +89,22 @@ nav{
 
 footer{
     align-self: flex-end;
+}
+
+#navcontainer{
+    border:black 1px solid;
+    text-align: right;
+}
+
+nav > .togglenav{
+    display: none;
+}
+
+#navClick > .logo{
+    margin:3px;
+    display: inline-block;
+    width:15px;
+    height: 15px;
+    border-radius: 50px;
+    border: 1px solid black;
 }

@@ -74,10 +74,7 @@ footer{
     white-space: nowrap;
 }
 
-nav{
-    display: flex;
-    flex-wrap: none;
-}
+
 
 #galleryFloor{
     /*border:black 2px solid;*/
@@ -92,4 +89,9 @@ nav{
 
 footer{
     align-self: flex-end;
+}
+
+
+nav > form, a{
+    display: none;
 }

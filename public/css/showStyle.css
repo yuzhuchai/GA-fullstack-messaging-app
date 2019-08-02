@@ -15,16 +15,17 @@ a {
   height: 100%;
   width: 100%;
   justify-content: center;
-  align-items: center;
 }
 
 
 .leftcol {
-  flex: 6;
+  flex: 7;
+  align-items: flex-end;
 }
 
 .rightcol {
-  flex: 4;
+  flex: 5;
+  align-items: flex-start;
 }
 
 
@@ -36,7 +37,8 @@ a {
 .imgshow{
   max-height: 90%;
   max-width: 90%;
-  padding: 30px;
+  margin-right: 5%;
+  box-shadow: 1px 2px grey;
 }
 
 #doortoothergallery{
@@ -46,9 +48,11 @@ a {
 #messagedisplay{
   display: flex;
   flex-direction: column;
+  background: white;
+  box-shadow: -1px 2px grey;
   width:50%;
   height: 60%;
-  border: 1px solid black;
+
 }
 
 #photoTitle {
@@ -61,13 +65,12 @@ a {
     overflow-y: scroll;
 }
 .message {
-  border: 1px solid black;
-  margin: 30px;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  margin: 0 10px
 }
 
 #createMessagePanel {
   flex: 1;
   text-align: center;
 }
-
-

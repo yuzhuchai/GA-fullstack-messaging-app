@@ -2,6 +2,7 @@ html, body{
     /*background-color: lavender;*/
     height: 100%;
     width: 100%;
+    margin: 0;
 }
 
 h1{
@@ -10,14 +11,17 @@ h1{
 }
 
 .thumbnail{
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .imgdiv {
     display: inline-block;
-    width:30%;
+    max-width:30%;
+    max-height:50%;
     float: none;
-    margin:auto 1.5%;
+    margin: auto 1.5%;
+    vertical-align: middle;
 }
 
 #galleryNameTile {
@@ -63,7 +67,11 @@ footer{
 } 
 
 
-
+.scroll{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 
 

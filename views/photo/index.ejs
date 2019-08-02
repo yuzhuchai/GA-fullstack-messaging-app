@@ -29,9 +29,9 @@
 			<br/>
 			Go to gallery
 			<select  class="roast" name="user">
-				<% for (let i = 0; i < users.length; i++) {%>
-						<option value="<%=users[i]._id%>"><%=users[i].username%></option>
-				<%}%>
+				<%users.filter(user => user.username !== username).forEach((user) => {%>
+					<option value="<%=users._id%>"><%=user.username%></option>
+				<%})%>
 			</select> and <button class="roast" type="submit">leave critiques</button>
 		</form>
 		</div>

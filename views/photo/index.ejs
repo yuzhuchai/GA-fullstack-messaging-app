@@ -30,7 +30,7 @@
 			Go to gallery
 			<select  class="roast" name="user">
 				<%users.filter(user => user.username !== username).forEach((user) => {%>
-					<option value="<%=users._id%>"><%=user.username%></option>
+					<option value="<%=user._id%>"><%=user.username%></option>
 				<%})%>
 			</select> and <button class="roast" type="submit">leave critiques</button>
 		</form>
@@ -39,7 +39,7 @@
 </nav>
 </div>
 </div>
-</div>
+</div> 
 
 
 

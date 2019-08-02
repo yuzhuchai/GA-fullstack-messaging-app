@@ -43,29 +43,46 @@
 
   	<div class="rightcol">
     	<div id="messagedisplay">
-        <h1 id="photoTitle"><%if(photo.title != '') {
-          photo.title
-        } else {%>
+        <h1 id="photoTitle"><%if(photo.title != '') {%>
+          <%=photo.title%>
+        <%} else {%>
           Untitled
         <%}%></h1>
         <div class="messageIndex">
           <%for (let i = 0; i < critiques.length; i++) {%>
-              <div class="message">
-                  <!-- we also need to add edit and delete button to each message index -->
+               <div class="messageIndex">
                   <%if (username === critiques[i].username){%>
-                    <div class="messageIndex">
-                    <a href="/messages/<%=critiques[i]._id%>">
-                      <div class="username">YOUR CRITIQUE: </div>
-                      <div class="title">TITLE: <%=critiques[i].title%></div>
-                      <div class="critique">CONTENT: <%=critiques[i].content%></div>
-                      <div class="price">VALUATION: $<%=critiques[i].price%></div>
-                    </a>
-                  </div>
+                    <div class="message" id="isUser">
+                      <a href="/messages/<%=critiques[i]._id%>" >
+                        <div class="username">
+                          @<%=critiques[i].username%>
+                        </div>
+                        <div class="title">
+                          <%=critiques[i].title.toUpperCase()%>
+                        </div>
+                        <div class="critique">
+                          <%=critiques[i].content%>
+                        </div>
+                        <div class="price">
+                          Valuation: $<%=critiques[i].price%>
+                        </div>
+                      </a>
+                    </div>
                   <%}else{%>
-                    <div class="username"><%=critiques[i].username.toUpperCase()%>'S CRITIQUE: </div>
-                    <div class="title">TITLE: <%=critiques[i].title%></div>
-                    <div class="critique">CONTENT: <%=critiques[i].content%></div>
-                    <div class="price">PRICE: <%=critiques[i].price%>$</div>
+                    <div class="message" id="isntUser">
+                      <div class="username">
+                        @<%=critiques[i].username%>
+                      </div>
+                      <div class="title">
+                        <%=critiques[i].title%>
+                      </div>
+                      <div class="critique">
+                        <%=critiques[i].content%>
+                      </div>
+                      <div class="price">
+                        <%=critiques[i].price%>$
+                      </div>
+                    </div>
                   <%}%>
 
               </div>
@@ -74,7 +91,7 @@
         <div id="createMessagePanel">
           <%if(photo.user.username !== username){%>
               <div id="critiqueInput">
-                <h3><a href="/messages/<%=photo._id%>/new">add a critique for this art</a></h3>
+                <h3><a href="/messages/<%=photo._id%>/new">Add a critique</a></h3>
               </div>
           <%}%>
         </div>

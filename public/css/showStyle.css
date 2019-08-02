@@ -58,17 +58,47 @@ a {
 #photoTitle {
   flex: 1;
   text-align: center;
+  font-size: 25px;
 }
 
-.messageIndex{
-    flex: 6;
-    overflow-y: scroll;
+.messageIndex {
+  flex: 8;
+  overflow-y: scroll;
+  color: black;
 }
 .message {
-  border-bottom: 1px solid black;
-  padding: 10px;
-  margin: 0 10px
+    padding: 8px;
+    margin: 2px 5px;
+    border-bottom: 1px solid lightgrey;
 }
+
+.message > * {
+  color: black;
+}
+
+
+.username {
+  color: rgb(100, 0, 100);
+  font-size: 18px;
+}
+
+.title {
+  font-weight: bolder;
+}
+
+.critique {
+  text-indent: 5px;
+}
+
+.price {
+  font-style: oblique;
+}
+
+
+#isUser:hover {
+  background: rgba(0, 0, 0, .1);
+}
+
 
 #createMessagePanel {
   flex: 1;

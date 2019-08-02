@@ -80,6 +80,13 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: rgba(0,0,0,0);
+    font-family: 'Baloo Chettan', cursive;
+}
+
+#button {
+	color: lightblue;
+	font-family: 'Baloo Chettan', cursive;
+	font-size: 20px;
 }
 
 button:hover{

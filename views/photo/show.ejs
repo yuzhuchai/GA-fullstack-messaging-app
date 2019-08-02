@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/showStyle.css">
     <title></title>
@@ -72,12 +73,12 @@
                     <div class="message" id="isntUser">
                       <div class="username">
                         <% critiqueUser.forEach((user) => {%>
-                         <%if (user.username === critiques[i].username){ %> 
+                         <%if (user.username === critiques[i].username){ %>
                             <a href="/photos/<%=user._id%>/newest">
                             @<%=critiques[i].username%>
                             </a>
                          <%} %>
-                       <%}) %> 
+                       <%}) %>
                       </div>
                       <div class="title">
                         <%=critiques[i].title%>

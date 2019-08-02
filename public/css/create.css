@@ -22,9 +22,16 @@ h1, p, h2, a{
 
 h1 {
 	font-size: 50px;
+	font-family: 'Baloo Chettan', bold;
 }
 a {
 	font-size: 23px;
+}
+
+#button {
+	color: lightblue;
+	font-family: 'Baloo Chettan', cursive;
+	font-size: 20px;
 }
 
 button {

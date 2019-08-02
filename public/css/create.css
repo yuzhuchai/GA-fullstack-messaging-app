@@ -5,7 +5,7 @@ h1, p, h2, a{
 
 
 form{
-	margin: 10px auto;
+	margin: auto;
 	/*margin-bottom: 100px;*/
 	display: flex;
 	flex-direction: column;
@@ -23,7 +23,7 @@ input{
 	margin: auto;
 	font-size: 15px;
 	border-radius: 10px;
-	margin-bottom: 50px;
+	/*margin-bottom: px;*/
 	/*left:20px;*/
 }
 

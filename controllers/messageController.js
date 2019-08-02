@@ -6,7 +6,7 @@ const User = require("../models/user.js")
 const bodyParser = require("body-parser")
 const requireLogIn = require("../lib/requireAuth.js")
 
-router.use(requireLogIn)
+// router.use(requireLogIn)
 
 router.get("/:photoId/new", async(req, res, next) => {
 	try {

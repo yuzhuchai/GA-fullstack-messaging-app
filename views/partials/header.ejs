@@ -2,21 +2,22 @@
   <div id="galleryWall">
     <div id="navcontainercontainer">
       <div id="navcontainer">
+        <div class="row1">
+        <% if (loggedIn){%>
+        <div class="welcome">
+           Hello <%=username.toUpperCase()%>, Welcome to Glass Half Empty Hotel
+        </div>
+        <%}else{%>
+        <div class="welcome">you are not logged in, go <a href="/">log in</a></div>
+        <% }%>
           <div id="navClick">
               <div class="logo"></div>
               <div class="logo"></div>
               <div class="logo"></div>
           </div>
+        </div>
+        <div class="row2">
           <nav>
-                  <% if (loggedIn){%>
-                  Welcome <%=username.toUpperCase()%> &nbsp
-                  <%}else{%>
-          <div class="togglenav">
-                  <form action="/" method="GET">
-                      <button>Login</button>
-                  </form>
-          </div>
-              	<%}%>
           <div class="togglenav">
               <form action="/auth/logout" method="GET">
                 <button>logOut</button>

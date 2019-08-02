@@ -13,17 +13,20 @@
     </nav>
   </div>
 </div>
+</div>
 
 
 
 <h1>Register</h1>
-<p><%=message%></p>
-<form action="/auth/register" method="POST">
-  <input type="text" name="username" placeholder="username"><br/>
-  <input type="password" name="password" placeholder="password"><br/>
-  <input type="email" name="email" placeholder="email"><br/>
-  <div class=button><button type='submit'>Register</button></div>
-</form>
-
+<div class="border">
+  <p><%=message%></p>
+  <form action="/auth/register" method="POST">
+    <input type="text" name="username" placeholder="username"><br/>
+    <input type="password" name="password" placeholder="password"><br/>
+    <input type="email" name="email" placeholder="email"><br/>
+    <div class=button><button type='submit'>Register</button></div>
+    <a href="/">already have an account, log in !</a>
+  </form>
+</div>
 </body>
 </html>

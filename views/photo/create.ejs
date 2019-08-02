@@ -12,17 +12,21 @@
 		</nav>
 	</div>
 </div>
+</div>
 
 
 
-	<h1>upload a new photo</h1>
+<h1>upload a new art</h1>
+
+<div class="border">
+	<p>when you upload your art people can give you critiques! </p><br/><br/>
 	<form enctype="multipart/form-data" action="/photos" method="POST">
 		<input type="text" name="title" placeholder="title"><br/>
 		<input id="file-input" type="file" name="photo" placeholder="uploadfile"><br/><br/>
 		<!-- <input type="date" name="date">/ -->
 		<button class="button">submit</button>
 	</form>
-
+</div>
 
 
 <% include ../partials/footer.ejs%>

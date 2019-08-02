@@ -40,26 +40,49 @@ footer{
 	display: inline-block;
 }
 
-#navcontainercontainer{
+/*#navcontainercontainer{
     display: flex;
+    justify-content: flex-end;
+}*/
+.row1{
+    display: flex;
+    justify-content: space-between;
+}
+nav{
+    display: flex;
+    /*padding: 100px: */
     justify-content: flex-end;
 }
 
+
 #navcontainer{
-    margin-right:100px;
+    margin:10px 50px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
 }
 
 
+
+nav > button{
+    margin-bottom: 20px;
+}
+
 nav > .togglenav{
-    text-align: left;
-    width:100px;
-    display: none;
+    text-align: center;
+    width:150px;
+    /*display: none;*/
     position: absolute;
     z-index: 1;
-    background-color: rgba(0,0,0,0.2);
-
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    color:white;
     /*left:-10px;*/
     /*left:-100px;*/
+}
+
+#navClick{
+    margin-right: 50px;
 }
 
 #navClick > .logo{

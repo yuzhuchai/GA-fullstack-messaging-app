@@ -1,14 +1,11 @@
-h1{
-	margin-top: 50px;
+h1, p, h2, a{
 	text-align: center;
 }
 
-h2{
-	text-align: center;
-}
+
 
 form{
-	/*margin: 10px auto;*/
+	margin: 10px auto;
 	/*margin-bottom: 100px;*/
 	display: flex;
 	flex-direction: column;
@@ -38,7 +35,15 @@ input{
 	justify-content: center;
 }
 
-a{
-	text-align: center;
+
+.border{
+	margin:10px auto;
+	border: black solid 5px;
+	width: 300px;
+	height:250px;
+	padding: 50px;
+	margin-bottom: 50px;
+	background-color: rgba(0,0,0,0.4)
 }
+
 

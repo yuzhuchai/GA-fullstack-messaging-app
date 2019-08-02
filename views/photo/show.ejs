@@ -43,7 +43,11 @@
 
   	<div class="rightcol">
     	<div id="messagedisplay">
-        <h1 id="photoTitle"><%=photo.title%></h1>
+        <h1 id="photoTitle"><%if(photo.title != '') {
+          photo.title
+        } else {%>
+          Untitled
+        <%}%></h1>
         <div class="messageIndex">
           <%for (let i = 0; i < critiques.length; i++) {%>
               <div class="message">
@@ -54,11 +58,11 @@
                       <div class="username">YOUR CRITIQUE: </div>
                       <div class="title">TITLE: <%=critiques[i].title%></div>
                       <div class="critique">CONTENT: <%=critiques[i].content%></div>
-                      <div class="price">PRICE: <%=critiques[i].price%>$</div>
+                      <div class="price">VALUATION: $<%=critiques[i].price%></div>
                     </a>
                   </div>
                   <%}else{%>
-                    <div class="username"><%=critiques[i].username.toUpperCase()%>'S CRITIQUE: "</div>
+                    <div class="username"><%=critiques[i].username.toUpperCase()%>'S CRITIQUE: </div>
                     <div class="title">TITLE: <%=critiques[i].title%></div>
                     <div class="critique">CONTENT: <%=critiques[i].content%></div>
                     <div class="price">PRICE: <%=critiques[i].price%>$</div>

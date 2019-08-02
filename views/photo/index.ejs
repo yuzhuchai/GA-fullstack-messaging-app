@@ -58,8 +58,6 @@
 	<%}%>
 	<% photos.forEach((photo) => { %>
 		<div class="imgdiv">
-			<p class="imgtitle"><%=photo.title%></p>
-			<br/>
 			<a href="/photos/photo/<%=photo.id%>"><img src="/photos/serve/<%=photo.id%>" class="thumbnail"></a>
 	<%if(username === thisUser.username){%>
 			<form action="/photos/photo/<%=photo.id%>?_method=DELETE" method="POST">

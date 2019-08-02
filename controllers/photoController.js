@@ -66,10 +66,19 @@ router.get("/photo/:id", async (req,res,next)=>{
 	try{
 		const foundPhoto = await Photo.findById(req.params.id).populate("user")
 		const foundCritiques = await Message.find({"photo": req.params.id}).sort("-date")
+		const usernameArr = []
+		foundCritiques.forEach((cri) => {
+			usernameArr.push(cri.username)
+		// console.log(critiqueUser,"<-----critique user");
+		})
+		const critiqueUser = await User.find({"username":{$in: usernameArr}})
+
+		console.log(critiqueUser,"<======critiqueUser");
 		// const thisuser = await User.findById(foundPhoto.user)
 		res.render("photo/show.ejs",{
 			photo: foundPhoto,
 			critiques: foundCritiques,
+			critiqueUser: critiqueUser
 			// thisuser: thisuser
 		})
 	}catch(err){

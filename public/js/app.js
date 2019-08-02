@@ -15,16 +15,20 @@ $("#navClick").on("click",() => {
 
 $(document).on("keydown",(e) => {
 	console.log("i pressed a key");
+	$(document).blur()
+	$("#scroll").focus(() => {
+		console.log(`i am focused`);
+	})
 	// console.log(e);
 		if(e.key === "ArrowLeft"){
-			$("#imageindexcontainer").focus()
+			$("#scroll").focus()
 			$("#scroll").offset({"left":"+=10"})
 			// e.preventDefault()
 			// $("#galleryFloor").css({"width":"-=10"})
 
 		} else if (e.key === 'ArrowRight'){
 			// e.preventDefault()
-			$("#imageindexcontainer").focus()
+			$("#scroll").focus()
 			$("#scroll").offset({"left":"-=10"})
 			// $("#galleryFloor").css({"width":"+=10px"})
 		}

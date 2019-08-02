@@ -71,7 +71,13 @@
                   <%}else{%>
                     <div class="message" id="isntUser">
                       <div class="username">
-                        @<%=critiques[i].username%>
+                        <% critiqueUser.forEach((user) => {%>
+                         <%if (user.username === critiques[i].username){ %> 
+                            <a href="/photos/<%=user._id%>/newest">
+                            @<%=critiques[i].username%>
+                            </a>
+                         <%} %>
+                       <%}) %> 
                       </div>
                       <div class="title">
                         <%=critiques[i].title%>

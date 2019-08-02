@@ -1,8 +1,35 @@
-h1, p, h2, a{
-	text-align: center;
+body {
+	background-image: url('/images/lobby.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+#galleryWall {
+	background: unset;
+}
+
+#galleryFloor{
+	background: unset;
+	border-top: unset;
 }
 
 
+h1, p, h2, a{
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 50px;
+}
+a {
+	font-size: 23px;
+}
+
+button {
+	color: lightblue;
+}
 
 form{
 	margin: auto;
@@ -31,7 +58,7 @@ input{
 	width: 240px;
 	display: flex;
 	flex-direction: column;
-	align-items: center; 
+	align-items: center;
 	justify-content: center;
 }
 
@@ -45,5 +72,3 @@ input{
 	margin-bottom: 50px;
 	background-color: rgba(0,0,0,0.4)
 }
-
-

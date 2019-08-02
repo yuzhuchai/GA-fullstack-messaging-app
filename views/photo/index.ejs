@@ -27,19 +27,19 @@
 		<div id="doortoothergallery">
 		<form action="/photos/<%=users._id%>" method="GET">
 			<br/>
-			Go to gallery
+			Other Artists:
 			<select  class="roast" name="user">
 				<%users.filter(user => user.username !== username).forEach((user) => {%>
 					<option value="<%=user._id%>"><%=user.username%></option>
 				<%})%>
-			</select> and <button class="roast" type="submit">leave critiques</button>
+			</select><button class="roast" type="submit">GO</button>
 		</form>
 		</div>
 </div>
 </nav>
 </div>
 </div>
-</div> 
+</div>
 
 
 

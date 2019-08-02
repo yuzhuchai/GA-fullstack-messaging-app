@@ -41,11 +41,6 @@ footer{
 	display: inline-block;
 }
 
-/*#navcontainercontainer{
-    display: flex;
-    justify-content: flex-end;
-}*/
-
 .row1{
     display: flex;
     justify-content: space-between;
@@ -64,7 +59,10 @@ nav{
     /*justify-content: space-between;*/
 }
 
-
+form {
+  color: black;
+  font-size: 10px;
+}
 
 button {
     display: inline-block;
@@ -84,8 +82,7 @@ button {
     background: rgba(0,0,0,0);
 }
 
-button:hover,
-button:focus {
+button:hover{
   font-size: 13px;
 }
 
@@ -103,15 +100,16 @@ nav > .togglenav{
     color:white;
 }
 
-#navClick{
-    margin-right: 50px;
-}
 
-#navClick > .logo{
+.logo{
     margin:1px;
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 50px;
     border: 1px solid black;
+}
+
+#navClick:hover .logo {
+  background: lightgrey;
 }

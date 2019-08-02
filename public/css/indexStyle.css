@@ -42,14 +42,6 @@ h1{
   width: 90%;
 }
 
-#doortoothergallery{
-    /*float: right;*/
-}
-
-footer{
-    text-align: center;
-    margin-top: 50px;
-}
 
 
 #imageindexcontainer{
@@ -58,7 +50,7 @@ footer{
     width:90%;
     /*border:1px solid black;*/
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: inherit;
     white-space: nowrap;
 }
 #imageindexcontainer::-webkit-scrollbar { 
@@ -68,9 +60,7 @@ footer{
 
 
 .scroll{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    overflow-y: inherit;
 }
 
 

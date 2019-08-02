@@ -64,8 +64,29 @@ nav{
 
 
 
-nav > button{
-    margin-bottom: 20px;
+button {
+    display: inline-block;
+    width: 150px;
+    height: auto;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  font-size: 13px;
+}
+
+button:active {
+    transform: scale(0.99);
 }
 
 nav > .togglenav{
@@ -74,7 +95,6 @@ nav > .togglenav{
     /*display: none;*/
     position: absolute;
     z-index: 1;
-    background-color: rgba(0,0,0,0.5);
     border-radius: 20px;
     color:white;
     /*left:-10px;*/

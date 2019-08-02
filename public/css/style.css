@@ -37,9 +37,6 @@ footer{
     color: white;
 }
 
-
-
-
 .roast{
 	display: inline-block;
 }
@@ -48,6 +45,7 @@ footer{
     display: flex;
     justify-content: flex-end;
 }*/
+
 .row1{
     display: flex;
     justify-content: space-between;
@@ -70,7 +68,7 @@ nav{
 
 button {
     display: inline-block;
-    width: 150px;
+    width: 200px;
     height: auto;
     border: none;
     padding: 1rem 2rem;
@@ -92,7 +90,7 @@ button:focus {
 }
 
 button:active {
-    transform: scale(0.99);
+    transform: scale();
 }
 
 nav > .togglenav{
@@ -103,8 +101,6 @@ nav > .togglenav{
     z-index: 1;
     border-radius: 20px;
     color:white;
-    /*left:-10px;*/
-    /*left:-100px;*/
 }
 
 #navClick{

@@ -14,7 +14,7 @@ router.delete("/:id", async (req,res,next)=>{
 		const foundPhotos = await Photo.deleteMany({user:req.params.id})
 		// console.log(foundPhotos,"<----found photo in the delete route");
 		// need to find all the messages attached to the user too
-		const foundMessages = await Message.deleteMany({"photo": "foundPhotos._id"})
+		// const foundMessages = await Message.deleteMany({"photo": "foundPhotos._id"})
 		// console.log(res);
 		res.redirect("/")
 	}catch(err){

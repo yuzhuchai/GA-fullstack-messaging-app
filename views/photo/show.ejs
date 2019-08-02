@@ -12,6 +12,11 @@
 			<form action="/photos/<%=photo.user._id%>" method="GET">
 				<button>back to gallery</button>
 			</form>
+      <%if (photo.user.username !== username){%>
+      <form action="/photos/<%=userId%>">
+      <button>Back to your own gallery</button>
+      </form>
+      <%}%>
 			</div>
 		</nav>
 	</div>

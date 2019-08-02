@@ -78,6 +78,7 @@ button {
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background: rgba(0,0,0,0);
 }
 
 button:hover,
@@ -92,7 +93,7 @@ button:active {
 nav > .togglenav{
     text-align: center;
     width:150px;
-    /*display: none;*/
+    display: none;
     position: absolute;
     z-index: 1;
     border-radius: 20px;
